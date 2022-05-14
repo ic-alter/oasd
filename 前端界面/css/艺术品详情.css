@@ -1,0 +1,85 @@
+.xiangqing{
+    background-image: url(../imgs/艺术品详情背景.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+.neirong{
+    background-color: rgba(237, 224, 255, 0.8);
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 12%;
+    margin-right: 12%;
+    border-style: ridge;
+    border-color: azure;
+    border-radius :5em;
+    padding: 2%;
+}
+.neirong h1{
+    font-family:Microsoft YaHei;
+    color: rgb(45, 10, 243);
+    text-align: center;
+}
+.neirong h4{
+    font-family:Microsoft YaHei;
+    color: rgb(45, 10, 243);
+    text-align: center;
+}
+.binglie div{
+    display: inline-block;
+    width: 40%;
+    margin-left: 4%;
+    margin-right: 4%;
+    vertical-align:top;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+.work_img img{
+    width: 100%;
+    margin-left: 0;
+}
+
+.price p{
+    display: inline-block;
+    font-size: 22px;
+    font-family:KaiTi_GB2312;
+    color:gold;
+    text-shadow: #f00 3px 3px 3px;
+}
+
+
+.gouwuche{
+    width: 270px;
+    height: 40px;
+    border-width: 0px;
+    border-radius: 3px;
+    background:rgba(8, 160, 241, 0.9); 
+    cursor: pointer;
+    outline: none; 
+    font-family: Microsoft YaHei;
+    color: white;
+    font-size: 17px; 
+}
+
+.gouwuche:hover{
+    background: rgba(54, 8, 206, 0.9);
+}
+
+.inf_table{
+    border: none;
+    border-top-style: groove;
+    border-bottom-style: groove;
+    border-left-style: groove;
+    border-right-style: groove;
+    background: rgba(8, 153, 206, 0.268);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.inf_table td{
+    width: 5%;
+    border-top-style:groove;
+    border-bottom-style:groove;
+}

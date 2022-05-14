@@ -1,0 +1,242 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.shop-car{
+    background-image: url("../imgs/购物车背景.png");
+    background-size:cover;
+    background-attachment: fixed;
+}
+ 
+#shop-box{
+    background: rgba(237, 224, 255, 0.8);
+    margin-top: 8%;
+    margin-bottom: 8%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-style: double;
+    border-color: azure;
+    border-radius :5em;
+    text-align: center;
+    padding: 2%;
+}
+/* 购物车整体和商品部分 */
+#shop-box,
+#commodity-box,
+.delAtt {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+ 
+/* 横向排列 */
+#top-box,
+#navigationBar-box,
+#commodit-1,
+#commodit-2,
+.com,
+.number,
+#payment-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+ 
+/* 导航栏、商品栏、结算栏高度 */
+#top-box,
+#navigationBar-box,
+#payment-box {
+	width: 990px;
+	height: 43px
+}
+ 
+#top-box,
+#navigationBar-box,
+#commodity-box,
+#payment-box {
+	margin-top: 0px;
+}
+ 
+/* 文本大小行高 */
+.text {
+	font-size: 12px;
+	line-height: 43px;
+}
+ 
+.text2 {
+	font-size: 12px;
+	line-height: 18px;
+}
+ 
+/* 导航栏背景色 */
+#navigationBar-box {
+	background-color: rgb(243, 243, 243);
+}
+ 
+/* 单选框样式 */
+.check {
+	width: 20px;
+	height: inherit;
+	padding: 10px 8px 0px 10px;
+}
+ 
+/* 导航栏布局 */
+.top-text {
+	width: 100px;
+}
+ 
+.top-box {
+	width: 390px;
+}
+ 
+/* 商品部分开始 */
+#commodity-box {
+	width: 990px;
+	height: 150px;
+	margin-bottom: 2px;
+}
+ 
+/* 店铺详情开始 */
+.shop {
+	width: inherit;
+	display: flex;
+	flex-direction: row;
+}
+ 
+ /* 商品详情开始 */
+#commodit-1,#commodit-2 {
+	/* background-color: rgba(243, 243, 243,20%); */
+	padding-top: 6px;
+	border-top: 2px rgba(0, 0, 0, 60%) solid;
+	border-left: 1px rgba(0, 0, 0, 20%) solid;
+	border-right: 1px rgba(0, 0, 0, 20%) solid;
+	border-bottom: 1px rgba(0, 0, 0, 20%) solid;
+}
+ 
+.com {
+	width: 952px;
+	padding-top: 6px;
+}
+ 
+.comImg {
+	width: 82px;
+	height: 82px;
+}
+ 
+.commodityInformation,
+.cusSel {
+	padding-left: 6px;
+}
+ 
+.comIn {
+	width: 200px;
+}
+ 
+.cusSel {
+	width: 200px;
+}
+ 
+.price {
+	width: 110px;
+	text-align: center;
+}
+ 
+.minus,
+.plus {
+	width: 20px;
+	height: 22px;
+	background-color: rgb(243, 243, 243);
+}
+ 
+.minus,.plus {
+	border-width: 1px;
+}
+ 
+.num {
+	width: 40px;
+	height: 20px;
+	outline: none;
+	border-width: 1px 0px 1px 0px;
+}
+ 
+.minus,
+.plus,
+.num {
+	text-align: center;
+	line-height: 20px;
+}
+ 
+.prices {
+	width: 80px;
+	text-align: center;
+	padding-left: 20px;
+}
+ 
+.delAtt {
+	width: 130px;
+	padding-right: 14px;
+}
+ 
+/* 商品结算框开始 */
+.foot-box {
+	width :250px;
+}
+ 
+.foot-text1 {
+	width: 200px;
+	font-size: 12px;
+	text-align: center;
+}
+ 
+.foot-text2 {
+	width: 130px;
+	font-size: 12px;
+	text-align: center;
+}
+ 
+.quantity {
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 43px;
+}
+ 
+.total {
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 43px;
+}
+.shift{
+    color: red;
+}
+.foot {
+	color: rgba(0, 0, 0, 60%);
+	margin-right: 5px;
+	padding-right: 5px;
+}
+ 
+.payment {
+	margin-left: 15px;
+	width: 86px;
+	height: 43px;
+	line-height: 43px;
+	font-size: 16px;
+	font-weight: bold;
+	border: 0px;
+	background-color: rgb(9, 13, 250);
+	color: white;
+}
+ 
+.text:hover {
+	color: red;
+}
+ 
+.del:hover {
+	color: red;
+}
+ 
+/* bom中的点击绑定事件 */
+.comBgColor {
+				background-color: rgb(255,244,232);
+			}

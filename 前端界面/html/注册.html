@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>注册页面</title>
+    <link href='../css/注册.css'  rel="stylesheet" type="text/css" />
+
+
+    <link href='../css/导航栏.css'  rel="stylesheet" type="text/css" />
+
+
+    
+</head>
+<body class="registerAndLogin">
+    <script src="../jQuery/jquery-3.6.0.js"></script>
+    <script src="../js/注册.js"></script>
+
+    <div class="top">
+        <center> 
+            <ul>
+            <div id="right">
+            <li>
+                <a href="#">我的</a>
+                <div class="dropdown-content">
+                    <a href="#">个人中心</a>
+                    <a href="#">购物车</a>
+                    <a href="#">发布艺术品</a>
+                    <a href="#">退出登录</a>
+                </div>
+            </li>    
+            <li><a href="注册.html">注册</a></li>  
+            <li><a href="登录.html">登录</a></li> 
+            <li><a href="#">搜索</a></li> 
+            <li><a href="#">商品详情</a></li>
+            <li><a href="#">首页</a></li>
+            </div>
+            <div id="left">
+            <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
+            <li><a href="#">站名</a></li>
+            </div>
+            </ul>
+        </center>      
+    </div>
+    <div class="bottom">
+        <center>
+            <p>底部版权说明</p>
+        </center>
+    </div>
+
+
+
+
+    <div class="registerAndLogin_form">
+    <h1>注册</h1>
+    <form name="tijiao" id="register_table" onsubmit="return checkAll()" >
+        <div class="left"></div>
+        <div class="form_body">
+            <div class="form_member">
+                    <div class="form_member1 menu">用户名:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" name="username" placeholder="请输入用户名" onblur="checkUsername(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">真实姓名:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" name="truename" placeholder="请输入真实姓名" onblur="checkTruename(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">性别:</div>
+                    <div class="form_member1 select">
+                         男性<input type="radio" name="gender" value="1" onblur="checkGender(this)">
+                         女性<input type="radio" name="gender" value="2" onblur="checkGender(this)">
+                         伪娘<input type="radio" name="gender" value="3" onblur="checkGender(this)">
+                         扶她<input type="radio" name="gender" value="4" onblur="checkGender(this)">
+                         <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">密码:</div>
+                    <div class="form_member1 kong">
+                        <input type="password" name="password" placeholder="请输入密码" onblur="checkPassword(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">确认密码:</div>
+                    <div class="form_member1 kong">
+                        <input type="password" name="password2" placeholder="请再次输入密码" onblur="checkPassword2(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">电话号码:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" name="phone" placeholder="请输入电话号码" onblur="checkPhone(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">邮箱地址:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" name="email" placeholder="请输入电子邮箱" onblur="checkEmail(this)">
+                        <span>&nbsp;</span>
+                    </div>  
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">居住地址:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" name="address" placeholder="请输入居住地址" onblur="checkAddress(this)">
+                        <span>&nbsp;</span>
+                    </div> 
+            </div>    
+        </div>
+        <div class="form_member can">
+            <input class="registerAndLogin_button" id="registerAndLogin_button" type="submit" value="注册">
+
+        </div>
+    </form>
+    </div>
+</body>
+</html>

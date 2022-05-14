@@ -1,0 +1,57 @@
+.registerAndLogin{
+    background-image: url("../imgs/22040102.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+}
+.registerAndLogin_form{
+    background: rgba(237, 224, 255, 0.8);
+    margin-top: 8%;
+    margin-bottom: 8%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-style: ridge;
+    border-color: azure;
+    border-radius :5em;
+    text-align: center;
+    padding: 2%;
+}
+
+.form_body div{
+    padding: 0.3em;
+}
+.form_member1{
+    display: inline;
+    margin: 1%;
+}
+.form_member{
+    margin: 1.5%;
+}
+.menu{
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+}
+.registerAndLogin_button{
+     /* 按钮美化 */
+        width: 270px; /* 宽度 */
+        height: 40px; /* 高度 */
+        border-width: 0px; /* 边框宽度 */
+        border-radius: 3px; /* 边框半径 */
+        background:rgba(8, 160, 241, 0.9); /* 背景颜色8, 160, 241 */
+        cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+        outline: none; /* 不显示轮廓线 */
+        font-family: Microsoft YaHei; /* 设置字体 */
+        color: white; /* 字体颜色 */
+        font-size: 17px; /* 字体大小 */
+}
+.registerAndLogin_button:hover{
+    background: rgba(54, 8, 206, 0.9);
+}
+
+.registerAndLogin_form h1{
+    font-family:Microsoft YaHei;
+    color: rgb(45, 10, 243);
+}
+.kong input{
+    border:none; width:200px; height:30px; text-align:left;line-height:20px;
+}

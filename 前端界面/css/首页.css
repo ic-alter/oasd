@@ -1,0 +1,44 @@
+.shouye_body{
+    background-color: #333;
+}
+
+.index img{
+    width: 70%;
+    height: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.three_hot{
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+    border: white;
+    border-style:double ;
+    border-radius: 10px;
+    background-image: url("../imgs/热门图片背景.png");
+}
+.three_hot div{
+    display: inline-block;
+    width: 23%;
+    vertical-align:top;
+    margin: 5%;
+}
+.three_hot h3{
+    color: whitesmoke;
+}
+.inf_table{
+    color: aliceblue;
+    border-color: aliceblue;
+    border-style:dotted;
+    
+}
+.inf_table tr td img{
+    width: 90%;
+    margin-top: 5%;
+}
+.hot_work a{
+    text-decoration: none;
+}

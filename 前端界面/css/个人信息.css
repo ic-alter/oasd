@@ -1,0 +1,64 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.personal{
+    background-image: url("../imgs/个人中心背景.png");
+    background-size:cover;
+    background-attachment: fixed;
+}
+.personal_inf{
+    background: rgba(237, 224, 255, 0.6);
+    margin-top: 8%;
+    margin-bottom: 8%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-style: double;
+    border-color: azure;
+    border-radius :5em;
+    text-align: center;
+    padding: 2%;
+}
+.personal_inf table{
+    margin: auto;
+    width: 90%;
+}
+.personal_works{
+    background: rgba(237, 224, 255, 0.6);
+    margin-top: 8%;
+    margin-bottom: 8%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-style: double;
+    border-color: azure;
+    border-radius :5em;
+    text-align: center;
+    padding: 2%;
+}
+.personal_works div table{
+    margin: auto;
+    width: 90%;
+}
+.my_title{
+    font-size: 20px;
+    padding: 20px;
+    color: chocolate;
+}
+
+#ke_jin{
+    /* 按钮美化 */
+       width: 270px; /* 宽度 */
+       height: 40px; /* 高度 */
+       border-width: 0px; /* 边框宽度 */
+       border-radius: 3px; /* 边框半径 */
+       background:rgba(8, 160, 241, 0.9); /* 背景颜色8, 160, 241 */
+       cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+       outline: none; /* 不显示轮廓线 */
+       font-family: Microsoft YaHei; /* 设置字体 */
+       color: white; /* 字体颜色 */
+       font-size: 17px; /* 字体大小 */
+       margin: 20px;
+}
+#ke_jin:hover{
+   background-color: gold;
+}

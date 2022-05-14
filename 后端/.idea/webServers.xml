@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e5320cc1-1e37-414a-b849-f15e52d100cb" name="test" url="http://localhost:63342">
+        <fileTransfer mountedRoot="D:\卓越软件pj\untitled" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
