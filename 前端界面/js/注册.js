@@ -6,6 +6,7 @@ function mean(t, flag, info, intext) {
 	if(flag) {
 		t.nextElementSibling.innerHTML = '√'
 		t.nextElementSibling.style.color = 'green'
+		return true;
 	} else {
 		if(va == '') {
 			t.nextElementSibling.innerHTML = `*&nbsp;${info}不能为空`;
@@ -13,6 +14,7 @@ function mean(t, flag, info, intext) {
 			t.nextElementSibling.innerHTML = intext;
 		}
 		t.nextElementSibling.style.color = 'red'
+		return false;
 
 	}
 
@@ -23,26 +25,26 @@ function checkUsername(t) {//0
 	let va = t.value;
 	if(reg.test(va)) {
 		username1 = true;
-		mean(t, username1)
+		return mean(t, username1)
 	} else {
 		username1 = false;
 		let info = '账号';
         let intext = '*&nbsp;格式错误';
-		mean(t, username1, info,intext)
+		return mean(t, username1, info,intext)
 	}
 }
 
 function checkTruename(t){//1
-    let reg = /^([\u4e00-\u9fa5]|\w){2,16}$/;
+    let reg = /^([\u4e00-\u9fa5]|\w){1,16}$/;
     let va = t.value;
     if(reg.test(va)){
         truename1 = true;
-        mean(t,truename1)
+        return  mean(t,truename1)
     } else {
         truename1 = false;
         let info = '真实姓名';
         let intext = '*&nbsp;格式错误';
-        mean(t,truename1,info,intext)
+        return mean(t,truename1,info,intext)
     }
 }
 
@@ -51,11 +53,11 @@ function checkGender(t){//2
     let va = t.value;
     if(reg.test(va)){
         gender = true;
-        mean(t,gender)
+        return mean(t,gender)
     } else {
         gender = false;
         let info = '性别';
-        mean(t,gender,info)
+        return mean(t,gender,info)
     }
 }
 
@@ -64,26 +66,26 @@ function checkPassword(t) {//3
 	let va = t.value;
 	if(reg.test(va)) {
 		p1 = true;
-		mean(t, p1)
+		return mean(t, p1)
 	} else {
 		p1 = false;
         let intext = '*&nbsp;格式错误'
 		let info = '密码';
-		mean(t, p1, info,intext)
+		return mean(t, p1, info,intext)
 	}
 }
 
 function checkPassword2(t) {//4
 	let va = t.value;
-	let va1 = document.tijiao.password.value;
+	let va1 = $("#password").val();
 	if(va == va1 ) {
 		p2 = true;
-		mean(t, p2)
+		return mean(t, p2)
 	} else {
 		p2 = false;
 		let intext = '*&nbsp;两次输入密码不一致'
 		let info = '确认密码';
-		mean(t, p2, info, intext)
+		return mean(t, p2, info, intext)
 	}
 }
 
@@ -92,12 +94,12 @@ function checkEmail(t) {//5
 	let va = t.value || '';
 	if(reg.test(va)) {
 		ema = true;
-		mean(t, ema)
+		return mean(t, ema)
 	} else {
 		ema = false;
 		let intext = '*&nbsp;邮箱格式错误'
 		let info = '邮箱';
-		mean(t, ema, info, intext)
+		return mean(t, ema, info, intext)
 	}
 }
 
@@ -107,12 +109,12 @@ function checkPhone(t) {//6
 	let va = t.value;
 	if(reg.test(va)) {
 		phone1 = true;
-		mean(t, phone1)
+		return mean(t, phone1)
 	} else {
 		phone1 = false;
 		let intext = '*&nbsp;没有该手机号'
 		let info = '手机号';
-		mean(t, phone1, info, intext)
+		return mean(t, phone1, info, intext)
 	}
 }
 
@@ -121,15 +123,63 @@ function checkAddress(t){//7
     let va = t.value;
     if(reg.test(va)){
         address = true;
-        mean(t,address)
+        return mean(t,address)
     } else {
         address = false;
         let info = '地址';
-        mean(t,address,info)
+        return mean(t,address,info)
     }
 }
 
-$(function(){
+function checkAll(){
+	return checkUsername(document.getElementById("username"))&&
+		   checkTruename(document.getElementById("username"))&&
+		   checkPassword(document.getElementById("password"))&&
+		   checkPassword2(document.getElementById("password2"))&&
+		   checkPhone(document.getElementById("phone"))&&
+		   checkEmail(document.getElementById("email"))&&
+		   checkAddress(document.getElementById("address"));
+}
+
+$(document).ready(function(){
+	$("#registerAndLogin_button").click(function(){
+		if(checkAll()){
+		var username = $("#username").val();
+		var truename = $("#truename").val();
+		var password = $("#password").val();
+		var password2 = $("#password2").val();
+		var phone = $("#phone").val();
+		var email = $("#email").val();
+		var address = $("#address").val();
+		$.ajax({
+			 url: "http://localhost:63342/register.php",  
+			 type: "POST",
+			 data:{
+				 "username":username,
+				 "truename":truename,
+				 "password":password,
+				 "phone":phone,
+				 "email":email,
+				 "address":address
+				},
+			 //dataType: "json",
+			 //async: false,
+			 error: function(){  
+				 alert('error');  
+				 alert(data);
+			 },  
+			 success: function(data,status){//如果调用php成功 
+				alert(status);
+				alert(data);
+				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
+			 }
+		});
+		} else alert("输入格式错误！");
+		
+	})
+})
+
+/*$(function(){
 	$("#registerAndLogin_button").click(function(){
 		$.ajax({
 			url: "http://localhost:63342/注册.php",
@@ -150,7 +200,7 @@ $(function(){
 			}
 		})
 	})
-})
+})*/
 
 /*
 $("#registerAndLogin_button").click(function(){

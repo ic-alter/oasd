@@ -1,4 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
     header("Access-Control-Allow-Origin:*");
     //include 'base.php';
@@ -24,18 +23,23 @@
     mysqli_query($conn,"set names utf8"); //数据库编码格式
     $username=$_POST['username'];
     $truename=$_POST['truename'];
-    $gender=$_POST["gender"];
+    //$gender=$_POST["gender"];
     $password=$_POST['password'];
     $phone = $_POST["phone"];
     $email = $_POST["email"];
     $address = $_POST["address"];
     $sql="select * from user where username='$username';";
-    $sql2="insert into user (`username`,`truename`,`gender`,`password`,`phone`,`email`,`address`) VALUES('$username','$truename','$gender','$password','$phone','$email','$address');";
+    $sql2="insert into user (`username`,`truename`,`password`,`phone`,`email`,`address`) VALUES('$username','$truename','$password','$phone','$email','$address');";
     $res=mysqli_query($conn,$sql);
-    $res2=mysqli_query($conn,$sql2);
-    if($res2){
-        echo '注册成功';
+    if (mysqli_fetch_assoc($res)["username"] != null){
+        echo "用户名已存在";
+    } else{
+        $res2=mysqli_query($conn,$sql2);
+        echo "注册成功";
     }
+    /*if($res2){
+        echo '注册成功';
+    }*/
    /* if(!empty($res)){
         echo '用户名已存在';
     }else {
@@ -45,6 +49,6 @@
         }
     }*/
 
-
-
-    ?>
+    $array = array("$username","$password");
+    echo json_encode($array);
+    $conn = null;
