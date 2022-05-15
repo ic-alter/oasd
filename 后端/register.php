@@ -31,7 +31,7 @@
     $sql="select * from user where username='$username';";
     $sql2="insert into user (`username`,`truename`,`password`,`phone`,`email`,`address`) VALUES('$username','$truename','$password','$phone','$email','$address');";
     $res=mysqli_query($conn,$sql);
-    if (mysqli_fetch_assoc($res)["username"] != null){
+    if (mysqli_fetch_assoc($res)>0){
         echo "用户名已存在";
     } else{
         $res2=mysqli_query($conn,$sql2);

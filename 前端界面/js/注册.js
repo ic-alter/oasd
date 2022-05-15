@@ -90,7 +90,7 @@ function checkPassword2(t) {//4
 }
 
 function checkEmail(t) {//5
-	let reg = /^\w+@(qq|163|sina)\.(com|cn)(.cn)?$/;
+	let reg = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
 	let va = t.value || '';
 	if(reg.test(va)) {
 		ema = true;
@@ -119,7 +119,7 @@ function checkPhone(t) {//6
 }
 
 function checkAddress(t){//7
-    let reg = /^([\u4e00-\u9fa5]|\w){4,30}$/;
+    let reg = /^([\u4e00-\u9fa5]|\w){2,30}$/;
     let va = t.value;
     if(reg.test(va)){
         address = true;

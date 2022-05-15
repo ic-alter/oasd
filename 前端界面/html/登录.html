@@ -8,6 +8,8 @@
     <link href='../css/导航栏.css'  rel="stylesheet" type="text/css" />
 </head>
 <body class="registerAndLogin">
+    <script src="../jQuery/jquery-3.6.0.js"></script>
+    <script src="../js/登录.js"></script>
 
     <div class="top">
         <center> 
@@ -43,27 +45,29 @@
 
     <div class="registerAndLogin_form">
         <h1>登录</h1>
-        <form name="tijiao" method="post" action="#">
+        <div name="tijiao">
             <div class="left"></div>
             <div class="form_body">
                 <div class="form_member">
                         <div class="form_member1 menu">用户名或邮箱:</div>
                         <div class="form_member1 kong">
-                            <input type="text" name="username" placeholder="请输入用户名或邮箱" onblur="check()">
+                            <input type="text" id="username" name="username" placeholder="请输入用户名或邮箱" onblur="checkUsername(this)">
+                            <span>&nbsp;</span>
                         </div>
                 </div>
                 <div class="form_member">
                     <div class="form_member1 menu">密码:      </div>
                         <div class="form_member1 kong">
-                            <input type="password" name="password" placeholder="请输入密码" onblur="check()">
+                            <input type="password" id="password" name="password" placeholder="请输入密码" onblur="checkPassword(this)">
+                            <span>&nbsp;</span>
                         </div>
                 </div>  
             </div>
             <div class="form_member can">
-                <input class="registerAndLogin_button" type="submit" value="登录">
+                <input class="registerAndLogin_button" id="registerAndLogin_button" type="submit" value="登录">
     
             </div>
-        </form>
+        </div>
     </div>
 </body>
 </html>
