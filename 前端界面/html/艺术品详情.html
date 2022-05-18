@@ -10,7 +10,8 @@
         
     </head>
     <body class="xiangqing">
-
+        <script src="../jQuery/jquery-3.6.0.js"></script>
+        <script src="../js/艺术品详情.js"></script>
 
         <div class="top">
             <center> 
@@ -47,40 +48,42 @@
 
 
         <div class="neirong">
-        <h1>此处将会是艺术品名称</h1>
-        <h4>此处是作者</h4>
+        <h1 id="title">暂无数据</h1>
+        <h4 id="artist">暂无数据</h4>
         <div class="binglie">
         <div class="work_img">
-            <img src="../imgs/94599030_p0_master1200.jpg">
+            <img id="painting_img" src="../imgs/94599030_p0_master1200.jpg">
         </div>
         <div class="work_information">
-            <div class="price">
-                <p>价格：</p>
-                <p>$114514</p>
-            </div>
+            <table class="price">
+                <tr>
+                    <th>价格：</th>
+                    <th id="cost">暂无数据</th>
+                </tr>
+            </table>
             <table class="inf_table">
                 <tr>
                     <th colspan="2">作品信息</th>
                 </tr>
                 <tr>
                     <td>作品年份</td>
-                    <td>1989</td>
+                    <td id="YearOfWork">暂无数据</td>
                 </tr>
                 <tr>
                     <td>作品时代</td>
-                    <td>xx时代</td>
-                </tr>
-                <tr>
-                    <td>作品时代</td>
-                    <td>xx时代</td>
+                    <td id="eras">暂无数据</td>
                 </tr>
                 <tr>
                     <td>作品风格</td>
-                    <td>xx风格</td>
+                    <td id="genre">暂无数据</td>
                 </tr>
                 <tr>
-                    <td>尺寸</td>
-                    <td>114m*514m</td>
+                    <td>高度</td>
+                    <td id="height">暂无数据</td>
+                </tr>
+                <tr>
+                    <td>宽度</td>
+                    <td id="width">暂无数据</td>
                 </tr>
                 <tr>
                     <td>发布时间</td>

@@ -18,7 +18,6 @@
 
     }
 
-    echo "连接成功";
 
     mysqli_query($conn,"set names utf8"); //数据库编码格式
     $username=$_POST['username'];
