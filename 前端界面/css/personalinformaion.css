@@ -3,7 +3,7 @@
 	margin: 0px;
 }
 .personal{
-    background-image: url("../imgs/个人中心背景.png");
+    background-image: url("../imgs/personalBackground.png");
     background-size:cover;
     background-attachment: fixed;
 }

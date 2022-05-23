@@ -2,44 +2,47 @@
 <html>
     <head>
         <title>个人信息</title>
-        <link href='../css/个人信息.css'  rel="stylesheet" type="text/css" />
+        <link href='../css/personalinformaion.css'  rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <link href='../css/导航栏.css'  rel="stylesheet" type="text/css" />
+        <link href='../css/index.css'  rel="stylesheet" type="text/css" />
     </head>
     <body class="personal">
+        <script src="../jQuery/jquery-3.6.0.js"></script>
+        <script src="../js/index.js"></script>
 
-        <div class="top">
-            <center> 
-                <ul>
-                <div id="right">
-                <li>
-                    <a href="#">我的</a>
-                    <div class="dropdown-content">
-                        <a href="#">个人中心</a>
-                        <a href="#">购物车</a>
-                        <a href="#">发布艺术品</a>
-                        <a href="#">退出登录</a>
-                    </div>
-                </li>    
-                <li><a href="注册.html">注册</a></li>  
-                <li><a href="登录.html">登录</a></li> 
-                <li><a href="#">搜索</a></li> 
-                <li><a href="#">商品详情</a></li>
-                <li><a href="#">首页</a></li>
+    <div class="top">
+        <center> 
+            <ul>
+            <div id="right">
+            <li>
+                <a id="index_myInformation" href="">我的</a>
+                <div class="dropdown-content">
+                    <a href="./personalinformaion.html">个人中心</a>
+                    <a href="./shoppingCart.html">购物车</a>
+                    <a href="./uploadPainting.html">发布艺术品</a>
+                    <a onclick="logout()" href="./home.html">退出登录</a>
                 </div>
-                <div id="left">
-                <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
-                <li><a href="#">站名</a></li>
-                </div>
-                </ul>
-            </center>      
-        </div>
-        <div class="bottom">
-            <center>
-                <p>底部版权说明</p>
-            </center>
-        </div>
+            </li>    
+            <li><a id="index_register" href="./register.html">注册</a></li>  
+            <li><a id="index_login" href="./login.html">登录</a></li> 
+            <li><a href="./search.html">搜索</a></li> 
+            <li><a id="index_paintingDetail" onclick="search_or_detail()">艺术品详情</a></li>
+            <li><a href="./home.html">首页</a></li>
+            </div>
+            <div id="left">
+            <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
+            <li><a href="#">站名</a></li>
+            </div>
+            </ul>
+        </center>      
+    </div>
+    <div class="bottom">
+        <center>
+            <p>底部版权说明</p>
+        </center>
+    </div>
+
 
         <div id="personal-platform">
             <div class="personal_inf">

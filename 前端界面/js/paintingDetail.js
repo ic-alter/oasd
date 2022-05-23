@@ -41,7 +41,7 @@ function getInformation(data){
     obj.innerHTML = data.artist;
     let img_path = '../painting_imgs/'+data.img_path+'.jpg'
     document.getElementById('painting_img').src = img_path;
-    alert(img_path);
+    //alert(img_path);
     var obj=document.getElementById("cost");
     obj.innerHTML = data.cost;
     var obj=document.getElementById("YearOfWork");
@@ -54,6 +54,16 @@ function getInformation(data){
     obj.innerHTML=data.height;
     var obj=document.getElementById("width");
     obj.innerHTML=data.width;
+    var obj=document.getElementById("description");
+    obj.innerHTML=data.description==null?"暂无数据":data.description;
+    var obj=document.getElementById("upload_time");
+    obj.innerHTML=data.upload_time==null?"无":data.upload_time;
+    var obj=document.getElementById("uploader");
+    obj.innerHTML=data.uploader==null?"非用户上传":data.uploader;
+    var obj=document.getElementById("heat");
+    obj.innerHTML=data.heat;
+    var obj=document.getElementById("is_sold");
+    obj.innerHTML=data.is_sold==0?"否":"是";
 }
 
 $(document).ready(function(){
@@ -72,8 +82,8 @@ $(document).ready(function(){
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
-				alert(status);
-				alert(data.title);
+				//alert(status);
+				//alert(data.title);
                 getInformation(data);
 				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
 			 }

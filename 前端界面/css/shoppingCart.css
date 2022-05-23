@@ -3,7 +3,7 @@
 	margin: 0px;
 }
 .shop-car{
-    background-image: url("../imgs/购物车背景.png");
+    background-image: url("../imgs/shoppingCartBackground.png");
     background-size:cover;
     background-attachment: fixed;
 }

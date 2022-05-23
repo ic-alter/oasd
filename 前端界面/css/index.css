@@ -3,12 +3,10 @@
 }
 
 .top{
-    /* 设置宽度高度背景颜色 */
     width: 100%;
     height: auto;
-    position: fixed; /*固定在顶部*/
-    top: 0;/*离顶部的距离为0*/
-   /* margin: 0;*/
+    position: fixed; 
+    top: 0;
 }
 .top ul{
     list-style-type: none;
@@ -19,11 +17,11 @@
 
 }
 .top li {
-    float:right; /* 使li内容横向浮动，即横向排列  */
+    float:right;
 }
 
 .top #left li{
-    float:left; /* 使li内容横向浮动，即横向排列  */
+    float:left;
 }
 
 .top li a{
@@ -41,11 +39,9 @@
     top: 5px;
 }
 .top li a:hover{
-    /* 鼠标选中时背景变为黑色 */
     background-color: rgb(29, 16, 173);
 }
 
-/* 下拉内容（默认隐藏） */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -57,7 +53,6 @@
     right: 0;
   }
   
-  /* 下拉链接 */
   .dropdown-content a {
     color: #111;
     padding: 12px 16px;
@@ -65,10 +60,8 @@
     display: block;
   }
   
-  /* 悬停时更改下拉链接的颜色 */
   .dropdown-content a:hover {background-color: rgb(29, 16, 173);}
 
-  /* 悬停时显示下拉菜单 */
   .top ul li:hover .dropdown-content {
     display: block;
   }

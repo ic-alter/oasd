@@ -46,14 +46,36 @@ function checkPassword(t) {//3
 	}
 }
 
+function setCookie(cname,cvalue,exdays){
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  alert(cname+" "+ cvalue);
+  document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/html/";
+}
+function getCookie(name){
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if(arr != null) return unescape(arr[2]);
+    return null;
+   }
+function delCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = getCookie(name);
+    if(cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}
+
 function checkAll(){
 	return checkUsername(document.getElementById("username"))&&
 		   checkPassword(document.getElementById("password"));
 }
 
+function jump_to_home(){
+	window.location.replace("./home.html");
+}
+
 $(document).ready(function(){
 	$("#registerAndLogin_button").click(function(){
-        //alert("114514");
 		if(checkAll()){
 		var username = $("#username").val();
 		var password = $("#password").val();
@@ -73,7 +95,13 @@ $(document).ready(function(){
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				alert(data);
-				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
+				alert(data=="登录成功");
+				if(data=="登录成功"){
+					setCookie("username",username,1);
+					jump_to_home();
+					//var x = document.cookie;
+					//alert("此即为"+document.cookie);
+				}
 			 }
 		});
 		} else alert("输入格式错误！");
