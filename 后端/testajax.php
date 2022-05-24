@@ -8,7 +8,7 @@ $array = array("$name","$pwd");
 
 echo json_encode($array);//json_encode方式是必须的*/
 header("Access-Control-Allow-Origin:*");
-/*class Student
+class Student
 {
     public $chn_name;
     public $eng_name;
@@ -23,9 +23,9 @@ header("Access-Control-Allow-Origin:*");
 
 $stu_list = [new Student("张三", "ZhangSan"), new Student("李四", "LiSi"), new Student("王五", "WangWu")];
 header("Content-type: application/json; charset=utf-8");
-echo json_encode($stu_list, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);*/
+echo json_encode($stu_list, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-$temp = null;
+/*$temp = null;
 include 'base.php';
-echo $temp;
+echo $temp;*/
 

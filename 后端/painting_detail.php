@@ -2,7 +2,6 @@
 header("Access-Control-Allow-Origin:*");
 $id = $_GET["id"];
 
-header("Access-Control-Allow-Origin:*");
 $conn = null;
 include 'base.php';
 require 'pojo/Painting.inc';
@@ -35,8 +34,11 @@ if (!$row){
     $painting = new Painting($row['Title'],$row2['FirstName'].' '.$row2['LastName'],$row['ImageFileName'],$row['YearOfWork'],
         $row['Cost']."万美元",$row_genre2['GenreName'],$row['Height'],$row['Width'],$row['Description'],
         $row['upload_time'],$row['uploader'],$row['heat']+1,$row['is_sold']);*/
-    $painting = new Painting();
-    $painting->get_painting_fromDB_and_heat_add1($conn,$id);
+    $sql="select * from paintings where PaintingID='$id';";
+    $res=mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($res);
+    $painting = new Painting($conn,$row);
+    $painting->heat_add1($conn);
     header("Content-type: application/json; charset=utf-8");
     echo json_encode($painting,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 

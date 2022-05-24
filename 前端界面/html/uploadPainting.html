@@ -5,7 +5,7 @@
     <title>上传艺术品</title>
     <link href='../css/uploadPainting.css'  rel="stylesheet" type="text/css" />
 
-
+    <link rel="icon" href="../imgs/img_hero04.jpg" sizes="24x24">
     <link href='../css/index.css'  rel="stylesheet" type="text/css" />
 
 
@@ -14,6 +14,7 @@
 <body class="create_work">
 
     <script src="../jQuery/jquery-3.6.0.js"></script>
+    <script src="../js/uploadPainting.js"></script>
     <script src="../js/index.js"></script>
 
     <div class="top">
@@ -37,7 +38,7 @@
             </div>
             <div id="left">
             <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
-            <li><a href="#">站名</a></li>
+            <li><a href="#"><strong>mizuki</strong></a></li>
             </div>
             </ul>
         </center>      
@@ -54,67 +55,83 @@
 
     <div class="work_form">
     <h1>上传艺术品</h1>
-    <form name="tijiao" method="post" action="#">
+    <div name="tijiao" method="post" action="#">
         <div class="left"></div>
         <div class="form_body">
             <div class="form_member">
-                <div class="form_img"><img src="../imgs/上传图片.jpg"></div>
+                <div class="form_img"><img src="../imgs/upload.png"></div>
                 <div class=><button id="upload_img">上传图片</button></div>
+                <span>&nbsp;</span>
             </div>
             <div class="form_member">
                     <div class="form_member1 menu">艺术品名称:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="workname" placeholder="请输入名称" onblur="check()">
+                        <input type="text" id="title" placeholder="请输入作品名称" onblur="check(this)">
+                        <span>&nbsp;</span>
                     </div>
             </div>
             <div class="form_member">
-                <div class="form_member1 menu">作者姓名:</div>
+                <div class="form_member1 menu">作者FirstName:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="creater" placeholder="请输入作者姓名">
+                        <input type="text" id="FirstName" placeholder="请输入作者FirstName" onblur="check(this)">
+                        <span>&nbsp;</span>
+                    </div>
+            </div>
+            <div class="form_member">
+                <div class="form_member1 menu">作者LastName:</div>
+                    <div class="form_member1 kong">
+                        <input type="text" id="LastName" placeholder="请输入作者LastName" onblur="check(this)">
+                        <span>&nbsp;</span>
                     </div>
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">介绍:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="introduction" placeholder="请输入介绍" onblur="check()">
+                        <input type="text" id="description" placeholder="请输入介绍" onblur="check(this)">
+                        <span>&nbsp;</span>
                     </div>
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">年份:</div>
                     <div class="form_member1 kong">
-                        <input type="date" name="date" placeholder="请输入作品年份" onblur="check()">
+                        <input type="text" id="YearOfWork" placeholder="请输入作品年份" onblur="checkDate(this)">
+                        <span>&nbsp;</span>
                     </div>
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">流派:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="style" placeholder="请输入流派">
+                        <input type="text" id="genre" placeholder="请输入流派" onblur="check(this)">
+                        <span>&nbsp;</span>
                     </div>
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">长度:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="height" placeholder="请输入长度" onblur="check()">
+                        <input type="text" id="height" placeholder="请输入长度" onblur="checkNum(this)">
+                        <span>&nbsp;</span>
                     </div>  
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">宽度:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="width" placeholder="请输入宽度" onblur="check()">
+                        <input type="text" id="width" placeholder="请输入宽度" onblur="checkNum(this)">
+                        <span>&nbsp;</span>
                     </div>  
             </div>
             <div class="form_member">
                 <div class="form_member1 menu">价格:</div>
                     <div class="form_member1 kong">
-                        <input type="text" name="price" placeholder="请输入价格" onblur="check()">
+                        <input type="text" id="cost" placeholder="请输入价格(万美元)" onblur="checkNum(this)">
+                        <span>&nbsp;</span>
                     </div> 
             </div>    
         </div>
         <div class="form_member can">
-            <input class="submit_button" type="submit" value="上传艺术品">
+            <input id="upload_submit_button" class="submit_button" type="submit" value="上传艺术品">
 
         </div>
-    </form>
+    </div>
     </div>
 </body>
 </html>

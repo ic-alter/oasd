@@ -29,7 +29,7 @@ function checkUsername(t) {//0
 	} else {
 		username1 = false;
 		let info = '账号';
-        let intext = '*&nbsp;格式错误';
+        let intext = '*&nbsp;应为汉字字母和下划线的组合,长度不超过16';
 		return mean(t, username1, info,intext)
 	}
 }
@@ -43,33 +43,20 @@ function checkTruename(t){//1
     } else {
         truename1 = false;
         let info = '真实姓名';
-        let intext = '*&nbsp;格式错误';
+        let intext = '*&nbsp;应为汉字字母和下划线的组合,长度不超过16';
         return mean(t,truename1,info,intext)
     }
 }
 
-function checkGender(t){//2
-    let reg = /^[0-9]{1}$/;
-    let va = t.value;
-    if(reg.test(va)){
-        gender = true;
-        return mean(t,gender)
-    } else {
-        gender = false;
-        let info = '性别';
-        return mean(t,gender,info)
-    }
-}
-
 function checkPassword(t) {//3
-	let reg = /^\w{6,16}$/;
+	let reg = /^.*(?=.{6,})(?=.*[A-Za-z!@#$%^&*?]|\d).*$/;
 	let va = t.value;
 	if(reg.test(va)) {
 		p1 = true;
 		return mean(t, p1)
 	} else {
 		p1 = false;
-        let intext = '*&nbsp;格式错误'
+        let intext = '*&nbsp;应是至少六位的数字字母符号的组合'
 		let info = '密码';
 		return mean(t, p1, info,intext)
 	}
@@ -90,14 +77,14 @@ function checkPassword2(t) {//4
 }
 
 function checkEmail(t) {//5
-	let reg = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
+	let reg = /^\w+@[a-zA-Z0-9]{2,}(?:\.[a-z]{2,}){1,3}$/;
 	let va = t.value || '';
 	if(reg.test(va)) {
 		ema = true;
 		return mean(t, ema)
 	} else {
 		ema = false;
-		let intext = '*&nbsp;邮箱格式错误'
+		let intext = '*&nbsp;应为正确的邮箱格式'
 		let info = '邮箱';
 		return mean(t, ema, info, intext)
 	}
@@ -112,7 +99,7 @@ function checkPhone(t) {//6
 		return mean(t, phone1)
 	} else {
 		phone1 = false;
-		let intext = '*&nbsp;没有该手机号'
+		let intext = '*&nbsp;应为符合手机号格式的11位数字'
 		let info = '手机号';
 		return mean(t, phone1, info, intext)
 	}
@@ -127,7 +114,8 @@ function checkAddress(t){//7
     } else {
         address = false;
         let info = '地址';
-        return mean(t,address,info)
+		let intext = '*&nbsp;不应包含除下划线外的其他字符'
+        return mean(t,address,info,intext)
     }
 }
 

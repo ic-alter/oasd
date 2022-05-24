@@ -38,18 +38,20 @@ function getInformation(data){
     var obj=document.getElementById("title");
     obj.innerHTML = data.title;
     var obj=document.getElementById("artist");
-    obj.innerHTML = data.artist;
-    let img_path = '../painting_imgs/'+data.img_path+'.jpg'
+    obj.innerHTML = data.artist==null?"暂无作者信息":data.artist;
+    let img_path = '../painting_imgs/'+data.img_path;
     document.getElementById('painting_img').src = img_path;
     //alert(img_path);
     var obj=document.getElementById("cost");
     obj.innerHTML = data.cost;
+    var obj=document.getElementById("PaintingID");
+    obj.innerHTML = data.id;
     var obj=document.getElementById("YearOfWork");
     obj.innerHTML=data.YearOfWork;
     var obj=document.getElementById("eras");
     obj.innerHTML=getEras(data.YearOfWork);
     var obj=document.getElementById("genre");
-    obj.innerHTML=data.genre;
+    obj.innerHTML=data.genre==null?"暂无流派信息":data.genre;
     var obj=document.getElementById("height");
     obj.innerHTML=data.height;
     var obj=document.getElementById("width");

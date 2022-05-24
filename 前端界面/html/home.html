@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>站名与描述信息</title>
+        <title>mizuki 一个艺术品网站</title>
         <!--<link href='../css/导航栏.css'  rel="stylesheet" type="text/css" />-->
+        <link rel="icon" href="../imgs/img_hero04.jpg" sizes="24x24">
         <link href='../css/home.css'  rel="stylesheet" type="text/css" />
 
         <link href='../css/index.css'  rel="stylesheet" type="text/css" />
@@ -13,6 +14,7 @@
 
     <body class="shouye_body">
     <script src="../jQuery/jquery-3.6.0.js"></script>
+    <script src="../js/home.js"></script>
     <script src="../js/index.js"></script>
 
     <div class="top">
@@ -36,7 +38,7 @@
             </div>
             <div id="left">
             <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
-            <li><a href="#">站名</a></li>
+            <li><a href="#"><strong>mizuki</strong></a></li>
             </div>
             </ul>
         </center>      
@@ -51,64 +53,73 @@
 
 
         <div class='index'>
-            <img src="../imgs/202011.jpg" alt="首页图片">
+            <img src="../imgs/98227205_p0.png" alt="首页图片">
         </div>
         <div class="three_hot">
             <h3>热门作品</h3>
             <div class="hot_work">
-                <a href="#"><table class="inf_table">
+                <a href="javascript:void(0);" onclick="turn_to_detail(0)"><table class="inf_table">
                     <tr>
-                        <td colspan="2"><img src="../imgs/hot1.png" alt="热门1"></td>
+                        <td colspan="2"><img class="hot_inf_img" src="../imgs/hot1.png" alt="热门1"></td>
                     </tr>
                     <tr>
-                        <td>名称</td><td>热门图片1</td>
+                        <td>名称</td><td class="hot_inf_title">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>作者</td><td>作者1</td>
+                        <td>作品编号</td><td class="hot_inf_id">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>售价</td><td>114514</td>
+                        <td>作者</td><td class="hot_inf_artist">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
-            <div class="hot_work">
-                <a href="#"><table class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/hot2.png" alt="热门2"></td>
+                        <td>售价</td><td class="hot_inf_cost">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>名称</td><td>热门图片2</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者2</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
+                        <td>访问量</td><td class="hot_inf_heat">暂无数据</td>
                     </tr>
                 </table></a>
             </div>
             <div class="hot_work">
-                <a href="#"><table class="inf_table">
+                <a  href="javascript:void(0);" onclick="turn_to_detail(1)"><table class="inf_table">
                     <tr>
-                        <td colspan="2"><img src="../imgs/hot3.jpg" alt="热门3"></td>
+                        <td colspan="2"><img class="hot_inf_img" src="../imgs/hot1.png" alt="热门1"></td>
                     </tr>
                     <tr>
-                        <td>名称</td><td>热门图片3</td>
+                        <td>名称</td><td class="hot_inf_title">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>作者</td><td>作者3</td>
+                        <td>作品编号</td><td class="hot_inf_id">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>售价</td><td>114514</td>
+                        <td>作者</td><td class="hot_inf_artist">暂无数据</td>
                     </tr>
                     <tr>
-                        <td>访问量</td><td>1919810</td>
+                        <td>售价</td><td class="hot_inf_cost">暂无数据</td>
+                    </tr>
+                    <tr>
+                        <td>访问量</td><td class="hot_inf_heat">暂无数据</td>
+                    </tr>
+                </table></a>
+            </div>
+            <div class="hot_work">
+                <a href="javascript:void(0);"  onclick="turn_to_detail(2)"><table class="inf_table">
+                    <tr>
+                        <td colspan="2"><img class="hot_inf_img" src="../imgs/hot1.png" alt="热门1"></td>
+                    </tr>
+                    <tr>
+                        <td>名称</td><td class="hot_inf_title">暂无数据</td>
+                    </tr>
+                    <tr>
+                        <td>作品编号</td><td class="hot_inf_id">暂无数据</td>
+                    </tr>
+                    <tr>
+                        <td>作者</td><td class="hot_inf_artist">暂无数据</td>
+                    </tr>
+                    <tr>
+                        <td>售价</td><td class="hot_inf_cost">暂无数据</td>
+                    </tr>
+                    <tr>
+                        <td>访问量</td><td class="hot_inf_heat">暂无数据</td>
                     </tr>
                 </table></a>
             </div>

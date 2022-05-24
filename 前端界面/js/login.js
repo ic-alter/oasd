@@ -19,7 +19,7 @@ function mean(t, flag, info, intext) {
 
 function checkUsername(t) {//0
 	let reg = /^([\u4e00-\u9fa5]|\w){1,16}$/;
-    let reg2 = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
+    let reg2 = /^\w+@[a-zA-Z0-9]{2,}(?:\.[a-z]{2,}){1,3}$/;
 	let va = t.value;
 	if(reg.test(va)||reg2.test(va)) {
 		username1 = true;
@@ -27,20 +27,20 @@ function checkUsername(t) {//0
 	} else {
 		username1 = false;
 		let info = '账号';
-        let intext = '*&nbsp;格式错误';
+        let intext = '*&nbsp;应为长度不超过16的汉字字母和下划线的组合或邮箱';
 		return mean(t, username1, info,intext)
 	}
 }
 
 function checkPassword(t) {//3
-	let reg = /^\w{6,16}$/;
+	let reg = /^.*(?=.{6,})(?=.*[A-Za-z!@#$%^&*?]|\d).*$/;
 	let va = t.value;
 	if(reg.test(va)) {
 		p1 = true;
 		return mean(t, p1)
 	} else {
 		p1 = false;
-        let intext = '*&nbsp;格式错误'
+        let intext = '*&nbsp;应是至少六位的数字字母符号的组合'
 		let info = '密码';
 		return mean(t, p1, info,intext)
 	}
@@ -83,8 +83,8 @@ $(document).ready(function(){
 			 url: "http://localhost:63342/login.php",  
 			 type: "POST",
 			 data:{
-				 "username":username,
-				 "password":password,
+				 "username":$("#username").val(),
+				 "password":$("#password").val(),
 				},
 			 //dataType: "json",
 			 //async: false,
@@ -95,7 +95,7 @@ $(document).ready(function(){
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				alert(data);
-				alert(data=="登录成功");
+				//alert(data=="登录成功");
 				if(data=="登录成功"){
 					setCookie("username",username,1);
 					jump_to_home();
