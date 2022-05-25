@@ -140,7 +140,7 @@ $(document).ready(function(){
 		var email = $("#email").val();
 		var address = $("#address").val();
 		$.ajax({
-			 url: "http://localhost:63342/register.php",  
+			 url: "http://localhost:63342/PHP/register.php",  
 			 type: "POST",
 			 data:{
 				 "username":username,
@@ -170,7 +170,7 @@ $(document).ready(function(){
 /*$(function(){
 	$("#registerAndLogin_button").click(function(){
 		$.ajax({
-			url: "http://localhost:63342/注册.php",
+			url: "http://localhost:63342/PHP/注册.php",
 			type: "POST",
 			data:$("#register_table").serialize(),
 		   // data: k + "=" + v,
@@ -192,7 +192,7 @@ $(document).ready(function(){
 
 /*
 $("#registerAndLogin_button").click(function(){
-		$.post("http://localhost:63342/注册.php",$("#register_table").serialize(),function(res){
+		$.post("http://localhost:63342/PHP/注册.php",$("#register_table").serialize(),function(res){
 			alert(res)
 		},"json")
 	})
@@ -201,7 +201,7 @@ function checkAll() {
 		regiterfn()
 		async function regiterfn(){
 			let answer=await pAjax({
-				url:'http://localhost:63342/注册.php',
+				url:'http://localhost:63342/PHP/注册.php',
 				data:{
 					username:document.tijiao.username.value,
                     truename:document.tijiao.truename.value,

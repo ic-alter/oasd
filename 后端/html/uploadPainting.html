@@ -59,8 +59,11 @@
         <div class="left"></div>
         <div class="form_body">
             <div class="form_member">
-                <div class="form_img"><img src="../imgs/upload.png"></div>
-                <div class=><button id="upload_img">上传图片</button></div>
+                <div class="form_img"><img id="view_upload_img" src="../imgs/upload.png"></div>
+                <div class=><input type="button" value="上传图片" onclick="true_upload_img.click()" id="upload_img"></div>
+                <!--<input type="button" value="上传图片" onclick="f.click()" class="btn_mouseout"/><br>
+                <p><input type="file" id="f" name="f" onchange="sc(this);" style="display:none"/></p>-->
+                <input type="file"  name="true_upload_img"  id="true_upload_img" onchange="checkImg(this)" accept="image/jpg,image/jpeg,image/png,image/PNG" style="display:none"/>
                 <span>&nbsp;</span>
             </div>
             <div class="form_member">
@@ -87,7 +90,7 @@
             <div class="form_member">
                 <div class="form_member1 menu">介绍:</div>
                     <div class="form_member1 kong">
-                        <input type="text" id="description" placeholder="请输入介绍" onblur="check(this)">
+                        <input type="text" id="description" placeholder="请输入介绍" onblur="checkText(this)">
                         <span>&nbsp;</span>
                     </div>
             </div>

@@ -19,6 +19,7 @@ class Painting_saveToDB{
     public $PaintingID;
     public $ArtistID;
     public $GenreID;
+    public $FileID;
 
     public function __construct($row){
         $this->title = $row['title'];
@@ -105,6 +106,11 @@ class Painting_saveToDB{
         /*写paintinggenres表*/
         $sql_insert_painting_genres = "insert into paintinggenres (`PaintingID`,`GenreID`) VALUES('$this->PaintingID','$this->GenreID');";
         $res_insert_painting_genres = mysqli_query($conn,$sql_insert_painting_genres);
+        /*文件名处理*/
+        $this->FileID = $this->PaintingID+24000;
+        $fileName = strval($this->FileID).$this->img_path;
+        $sql_update_file = "UPDATE paintings SET ImageFileName='$fileName' WHERE PaintingID='$this->PaintingID';";
+        $res_update_file = mysqli_query($conn,$sql_update_file);
         return "艺术品上传成功";
     }
 }

@@ -41,7 +41,7 @@ function turn_to_detail(i){
 
 $(document).ready(function(){
 		$.ajax({
-			 url: "http://localhost:63342/three_hot.php",  
+			 url: "http://localhost:63342/PHP/three_hot.php",  
 			 type: "GET",
 			 /*data:{
 				 "id":id

@@ -72,7 +72,7 @@ $(document).ready(function(){
         //alert(getQueryVariable("id"));
         let id = getQueryVariable("id");
 		$.ajax({
-			 url: "http://localhost:63342/painting_detail.php",  
+			 url: "http://localhost:63342/PHP/painting_detail.php",  
 			 type: "GET",
 			 data:{
 				 "id":id

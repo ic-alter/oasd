@@ -1,3 +1,14 @@
+
+function changepic() {
+    var reads = new FileReader();
+    f = document.getElementById('true_upload_img').files[0];
+    reads.readAsDataURL(f);
+    reads.onload = function(e) {
+    document.getElementById('view_upload_img').src = this.result;
+    //$("#img3").css("display", "block");
+    };
+   }
+
 function mean(t, flag, intext) {
 	let va = t.value;
 	if(flag) {
@@ -15,6 +26,41 @@ function mean(t, flag, intext) {
 
 	}
 
+}
+
+function getImgName(t){
+    var animateimg = t.value; //获取上传的图片名 带//
+    var imgarr=animateimg.split('\\'); //分割
+    var myimg=imgarr[imgarr.length-1]; //去掉 // 获取图片名
+    var houzui = myimg.lastIndexOf('.'); //获取 . 出现的位置
+    var ext = myimg.substring(houzui, myimg.length).toUpperCase();
+    return ext;
+}
+
+function checkText(t){
+	let va = t.value;
+    if(va!=""){
+        checkResult = true;
+        return mean(t, checkResult);
+    }else{
+		checkResult = false;
+        //let info = '格式错误,';
+        let intext = `*&nbsp;不能包含特殊字符`;
+        return mean(t, checkResult,intext);
+    }
+}
+
+function checkImg(t){
+    let ext= getImgName(t);
+    if(ext =='.PNG' || ext =='.JPG' || ext =='.JPEG' || ext =='.png' || ext =='.jpg' || ext =='.jpeg'){
+        t.nextElementSibling.innerHTML = '图片上传完成'
+		t.nextElementSibling.style.color = 'green'
+        changepic();
+		return true;
+    } else {
+        t.nextElementSibling.innerHTML = `*&nbsp;请上传png,jpg,jpeg格式的艺术品图片`;
+        t.nextElementSibling.style.color = 'red'
+    }
 }
 
 function check(t) {//0
@@ -48,24 +94,26 @@ function checkDate(t) {//0
 
 function checkNum(t){
     //let reg = /^[1-9][0-9]{0,}$/;
-    let reg = /^\d+(\.\d{1,})?$/;
+    //let reg = /^\d+(\.\d{1,4})?$/;
+    let reg = /^[1-9]+\d*(\.\d{1,4})?$|^0\.\d{1,4}$/;
 	let va = t.value;
-	if(reg.test(va)) {
+	if(reg.test(va)&&va>0) {
 		checkResult = true;
 		return mean(t, checkResult)
 	} else {
 		checkResult = false;
 		//let info = '格式错误,';
-        let intext = `*&nbsp;只能填写正实数`;
+        let intext = `*&nbsp;请填写正数,至多四位小数`;
 		return mean(t, checkResult,intext)
 	}
 }
 
 function checkAll(){
-    return  check(document.getElementById("title"))&&
+    return  checkImg(document.getElementById("true_upload_img"))&&
+            check(document.getElementById("title"))&&
             check(document.getElementById("FirstName"))&&
             check(document.getElementById("LastName"))&&
-            check(document.getElementById("description"))&&
+            checkText(document.getElementById("description"))&&
             checkDate(document.getElementById("YearOfWork"))&&
             check(document.getElementById("genre"))&&
             checkNum(document.getElementById("height"))&&
@@ -103,10 +151,10 @@ $(document).ready(function(){
 	$("#upload_submit_button").click(function(){
 		if(checkAll()){
 		$.ajax({
-			 url: "http://localhost:63342/upload_painting.php",  
+			 url: "http://localhost:63342/PHP/upload_painting.php",  
 			 type: "POST",
 			 data:{
-				 "img_path":"temp.png",
+				 "img_path":getImgName(document.getElementById("true_upload_img")),
 				 "title":$("#title").val(),
                  "FirstName":$("#FirstName").val(),
                  "LastName":$("#LastName").val(),
@@ -121,7 +169,7 @@ $(document).ready(function(){
                  "heat":0,
                  "is_sold":0,
 				},
-			 //dataType: "json",
+			 dataType: "json",
 			 //async: false,
 			 error: function(){  
 				 alert('error');  
@@ -129,13 +177,31 @@ $(document).ready(function(){
 			 },  
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
-				alert(data);
+				alert(data.msg);
 				//alert(data=="上传艺术品成功！");
-				/*if(data=="登录成功"){
-					jump_to_home();
-					//var x = document.cookie;
-					//alert("此即为"+document.cookie);
-				}*/
+				if(data.msg=="艺术品上传成功"){
+                    let path = "../painting_imgs/"+data.fileName+getImgName(document.getElementById("true_upload_img"));
+                    let f = document.getElementById('true_upload_img').files[0];
+                    formData = new FormData();
+                    formData.append("img",f);
+                    formData.append("path",path);
+                    $.ajax({
+                        url:"http://localhost:63342/PHP/upload_painting_img.php",
+                        type:'POST',
+                        async: false,
+                        data: formData,
+                        dataType:'json',
+                        cache: false, // 上传文件无需缓存
+                        processData : false, // 使数据不做处理
+                        contentType : false, // 不要设置Content-Type请求头
+                        success: function(data){
+                            console.log(data);
+                        },
+                        error:function(response){
+                            console.log(response);
+                        }
+                    });
+				}
 			 }
 		});
 		} else alert("输入格式错误！");
