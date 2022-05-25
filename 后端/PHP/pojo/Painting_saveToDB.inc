@@ -12,6 +12,7 @@ class Painting_saveToDB{
     public $width;
     public $description;
     public $upload_time;
+    public $update_time;
     public $uploader;
     public $heat;
     public $is_sold;
@@ -33,6 +34,7 @@ class Painting_saveToDB{
         $this->width = $row['width'];
         $this->description = $row['description'];
         $this->upload_time = $row['upload_time'];
+        $this->update_time = $row['update_time'];
         $this->uploader = $row['uploader'];
         $this->heat = $row['heat'];
         $this->is_sold = $row['is_sold'];
@@ -95,8 +97,8 @@ class Painting_saveToDB{
         $this->get_or_create_GenreID($conn);
         /*写paintings表*/
         $sql_insert_painting = "insert into paintings 
-        (`ArtistID`,`ImageFileName`,`Title`,`YearOfWork`,`Cost`,`Height`,`Width`,`Description`,`upload_time`,`uploader`,`heat`,`is_sold`) VALUES
-        ('$this->ArtistID','$this->img_path','$this->title','$this->YearOfWork','$this->cost','$this->height','$this->width','$this->description','$this->upload_time','$this->uploader','$this->heat','$this->is_sold');";
+        (`ArtistID`,`ImageFileName`,`Title`,`YearOfWork`,`Cost`,`Height`,`Width`,`Description`,`upload_time`,`update_time`,`uploader`,`heat`,`is_sold`) VALUES
+        ('$this->ArtistID','$this->img_path','$this->title','$this->YearOfWork','$this->cost','$this->height','$this->width','$this->description','$this->upload_time','$this->update_time','$this->uploader','$this->heat','$this->is_sold');";
         $res_insert_painting = mysqli_query($conn,$sql_insert_painting);
         /*获取id*/
         $sql_get_PaintingID = "select * from paintings where Title='$this->title';";

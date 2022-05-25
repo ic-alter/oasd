@@ -138,6 +138,9 @@ function turn_to_home(){
 	alert("您已经登录了");
 	window.location.replace('./home.html');
 }
+function jump_to_login(){
+	window.location.replace('./login.html');
+}
 
 $(document).ready(function(){
 	if(getCookie("username")!=null){
@@ -172,6 +175,7 @@ $(document).ready(function(){
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				alert(data);
+				jump_to_login();
 				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
 			 }
 		});

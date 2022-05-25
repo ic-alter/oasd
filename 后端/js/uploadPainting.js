@@ -146,8 +146,22 @@ function jsDateFormatter( dateInput ) {  // dateInput 是一个 js 的 Date 对�
     return year +"-"+ month +"-" + theDate + " "+ hour +":"+ minute +":"+ second;
 }
 
+function getCookie(name){
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if(arr != null) return unescape(arr[2]);
+    return null;
+   }
+
+function turn_to_login(){
+    alert("请先登录");
+    window.location.replace("./login.html");
+}
+
 
 $(document).ready(function(){
+    if(getCookie("username")==null){
+        turn_to_login();
+    }
 	$("#upload_submit_button").click(function(){
 		if(checkAll()){
 		$.ajax({
@@ -165,6 +179,7 @@ $(document).ready(function(){
                  "width":$("#width").val(),
                  "cost":$("#cost").val(),
                  "upload_time":jsDateFormatter(new Date()),
+                 "update_time":jsDateFormatter(new Date()),
                  "uploader":getCookie("username"),
                  "heat":0,
                  "is_sold":0,

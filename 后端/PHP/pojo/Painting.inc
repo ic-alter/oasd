@@ -12,6 +12,7 @@ class Painting{
     public $width;
     public $description;
     public $upload_time;
+    public $update_time;
     public $uploader;
     public $heat;
     public $is_sold;
@@ -65,6 +66,7 @@ class Painting{
             $this->width = $row['Width'];
             $this->description = $row['Description'];
             $this->upload_time = $row['upload_time'];
+            $this->update_time = $row['update_time'];
             $this->uploader = $row['uploader'];
             $this->heat = $row['heat'];
             $this->is_sold = $row['is_sold'];

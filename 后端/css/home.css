@@ -42,3 +42,11 @@
 .hot_work a{
     text-decoration: none;
 }
+
+.three_new{
+    background-image: url("../imgs/new_background.png");
+    background-size: 100%;
+}
+.three_new h3{
+    color: rgb(35, 34, 34);
+}
