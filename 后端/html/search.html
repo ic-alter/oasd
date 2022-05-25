@@ -11,6 +11,7 @@
     </head>
     <body class="search">
         <script src="../jQuery/jquery-3.6.0.js"></script>
+        <script src="../js/search.js"></script>
         <script src="../js/index.js"></script>
 
     <div class="top">
@@ -48,14 +49,31 @@
         
 
         <div class="sousuokuang"> 
-            <form>
-                <input class="search_text" type="text" name="search_text">
-                <input class="search_submit" type="submit" value="搜索">
-            </form>
-        </div>
-        <div class="search_result">
             <div>
-                <a href="#"><table id="search_1" class="inf_table">
+                <input class="search_text" id="search_text" type="text" name="search_text">
+                <input class="search_submit" type="submit" value="按作品名搜索" onclick="search()">
+            </div>
+        </div>
+        <div class="sousuokuang">
+            <div>
+                <input class="search_text artist" type="text" id="FirstName" name="FirstName" placeholder="FirstName">
+                <input class="search_text artist" type="text" id="LastName" name="LastName" placeholder="LastName">
+                <input class="search_submit" type="submit" value="按作者搜索" onclick="search()">
+            </div>
+        </div>
+
+        <div class="sousuokuang">
+            <select class="search_text" name="search_text" id="OrderMethod">
+                <option selected="selected" value="1">按作品名排序</option>
+                <option value="2">按访问量排序</option>
+                <option value="3">按价格排序</option>
+            </select>
+            <input class="search_submit" type="submit" value="确认排序方式" onclick="search()">
+        </div>
+        <div id="search_result" class="search_result">
+            <p>暂未搜索到相关艺术品</p>
+            <!--<div>
+                <a href=""><table class="inf_table">
                     <tr>
                         <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
                     </tr>
@@ -69,171 +87,38 @@
                         <td>售价</td><td>114514</td>
                     </tr>
                     <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
+                        <td>简介</td><td>简介</td>
                     </tr>
                     <tr>
                         <td>访问量</td><td>1919810</td>
                     </tr>
                 </table></a>
-            </div>
-            <div id="2">
-                <a href="#"><table id="search_2"  class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
-                    </tr>
-                    <tr>
-                        <td>名称</td><td>搜索</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
-            <div id="3">
-                <a href="#"><table id="search_3"  class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
-                    </tr>
-                    <tr>
-                        <td>名称</td><td>搜索</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
-            <div id="4">
-                <a href="#"><table id="search_4"  class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
-                    </tr>
-                    <tr>
-                        <td>名称</td><td>搜索</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
-            <div id="5">
-                <a href="#"><table id="search_5"  class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
-                    </tr>
-                    <tr>
-                        <td>名称</td><td>搜索</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
-            <div id="6">
-                <a href="#"><table id="search_6"  class="inf_table">
-                    <tr>
-                        <td colspan="2"><img src="../imgs/1.jpg" alt="搜索1"></td>
-                    </tr>
-                    <tr>
-                        <td>名称</td><td>搜索</td>
-                    </tr>
-                    <tr>
-                        <td>作者</td><td>作者</td>
-                    </tr>
-                    <tr>
-                        <td>售价</td><td>114514</td>
-                    </tr>
-                    <tr>
-                        <td>简介</td><td>简介一般都会比较长简介一般都会比较长简介一般都会比较长简介一般都会比较长</td>
-                    </tr>
-                    <tr>
-                        <td>访问量</td><td>1919810</td>
-                    </tr>
-                </table></a>
-            </div>
+            </div>-->
+            
         </div>
         <div class="page">
             <div>
-            <table>
+            <table id="select_page">
                 <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="上一页" >上一页</button>
-                    </form>
+                        <button class="page_button" name="page" value="上一页" onclick="pre_page()" >上一页</button> 
                 </tr>
+                <span id="select_page_buttons">
+                <!--<tr>
+                    
+                        <button class="page_button" name="page" value="1" onclick="change_page(this.value)" >1</button>
+                   
+                </tr>-->
+                </span>
                 <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="1" >1</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="2" >2</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="3" >3</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="4" >4</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="5" >5</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="6" >6</button>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="#">
-                        <button class="page_button" type="submit" name="page" value="下一页" >下一页</button>
-                    </form>
+                    
+                        <button class="page_button" name="page" value="下一页" onclick="next_page()" >下一页</button>
+                    
                 </tr>
             </table>
             </div>
             <div class="select_page">
-                <p>第<input type="text" name="now_page" value="1">页,共<span>114514</span>页</p>
+                <p>第<span id="now_page">1</span>页,共<span id="total_page">1</span>页,跳转到<input type="text" id="now_page" name="jump_page" value="" onblur="change_page(this.value)">页</p>
+                <span id="page_error">&nbsp;</span>
             </div>
         </div>
     </body>

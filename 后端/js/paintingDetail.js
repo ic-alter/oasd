@@ -1,21 +1,12 @@
 function getQueryVariable(variable)
-
 {
-
        var query = window.location.search.substring(1);
-
        var vars = query.split("&");
-
        for (var i=0;i<vars.length;i++) {
-
                var pair = vars[i].split("=");
-
                if(pair[0] == variable){return pair[1];}
-
        }
-
        return(false);
-
 }
 
 function getEras(YearOfWork){
@@ -80,7 +71,7 @@ $(document).ready(function(){
 			 dataType: "json",
 			 //async: false,
 			 error: function(){  
-				 alert('error');  
+				 alert('网络错误');  
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 

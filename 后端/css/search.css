@@ -4,9 +4,9 @@
     background-attachment: fixed;
 }
 .sousuokuang{
-    width: 390px;
-    margin-top: 7%;
-    margin-bottom: 1%;
+    width: 500px;
+    margin-top: 5%;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Microsoft YaHei';
@@ -19,7 +19,7 @@
 }
     
 .search_text{ 
-    width: 260px;
+    width: 220px;
     border: 1px solid #e2e2e2;
     height: 32px; 
     /*float: left;
@@ -29,9 +29,13 @@
     background-size: 25px;
     background-position:5px center;*/
 }
+
+.artist{
+    width: 110px;
+}
     
 .search_submit{
-    width: 78px;
+    width: 150px;
     height: 32px;
     background: black;
     color: white;
@@ -89,4 +93,13 @@
     height: 25px;
     color: aliceblue;
     vertical-align:top;
+    cursor:pointer;
+}
+
+.page_button:hover{
+    background-color: rgb(95, 94, 94);
+}
+
+#select_page{
+    display: inline-block;
 }

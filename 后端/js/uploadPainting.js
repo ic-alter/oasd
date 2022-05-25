@@ -172,7 +172,7 @@ $(document).ready(function(){
 			 dataType: "json",
 			 //async: false,
 			 error: function(){  
-				 alert('error');  
+				 alert('网络错误');  
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
