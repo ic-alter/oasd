@@ -1,3 +1,20 @@
+var now_mizuki = 0;
+
+function change_mizuki(){
+    var mizuki_photo = new Array();
+    mizuki_photo[0] = '../imgs/98227205_p0.png';
+    mizuki_photo[1] = '../imgs/change1.png';
+    mizuki_photo[2] = '../imgs/change2.png';
+    mizuki_photo[3] = '../imgs/change3.png';
+    mizuki_photo[4] = '../imgs/change4.png';
+    if(now_mizuki>=4){
+        now_mizuki =0;
+    } else{
+        now_mizuki++;
+    }
+    document.getElementById("mizuki_kawaii").src = mizuki_photo[now_mizuki];
+}
+
 function getEras(YearOfWork){
     if(YearOfWork<1400){
         return 'Medieval';
@@ -64,7 +81,25 @@ function turn_to_detail_new(i){
     window.location.href = "./paintingDetail.html?id="+obj[i].innerHTML;
 }
 
+function clk(){
+    window.setInterval(function(){
+    var mizuki_photo = new Array();
+    mizuki_photo[0] = '../imgs/98227205_p0.png';
+    mizuki_photo[1] = '../imgs/change1.png';
+    mizuki_photo[2] = '../imgs/change2.png';
+    mizuki_photo[3] = '../imgs/change3.png';
+    mizuki_photo[4] = '../imgs/change4.png';
+    if(now_mizuki>=4){
+        now_mizuki =0;
+    } else{
+        now_mizuki++;
+    }
+    document.getElementById("mizuki_kawaii").src = mizuki_photo[now_mizuki];
+    }, 5000);
+}
+
 $(document).ready(function(){
+    clk();
 		$.ajax({
 			 url: "http://localhost:63342/PHP/three_hot.php",  
 			 type: "GET",
