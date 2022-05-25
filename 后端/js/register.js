@@ -128,8 +128,21 @@ function checkAll(){
 		   checkEmail(document.getElementById("email"))&&
 		   checkAddress(document.getElementById("address"));
 }
+function getCookie(name){
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if(arr != null) return unescape(arr[2]);
+    return null;
+   }
+
+function turn_to_home(){
+	alert("您已经登录了");
+	window.location.replace('./home.html');
+}
 
 $(document).ready(function(){
+	if(getCookie("username")!=null){
+		turn_to_home();
+	}
 	$("#registerAndLogin_button").click(function(){
 		if(checkAll()){
 		var username = $("#username").val();
@@ -157,7 +170,7 @@ $(document).ready(function(){
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
-				alert(status);
+				//alert(status);
 				alert(data);
 				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
 			 }
@@ -166,71 +179,3 @@ $(document).ready(function(){
 		
 	})
 })
-
-/*$(function(){
-	$("#registerAndLogin_button").click(function(){
-		$.ajax({
-			url: "http://localhost:63342/PHP/注册.php",
-			type: "POST",
-			data:$("#register_table").serialize(),
-		   // data: k + "=" + v,
-			dataType: "json",
-			global: true,
-			success: function () {
-				//console.log(res.username)
-				alert("success")
-			},
-			error:function(){
-				// console.log(xhr)
-				// console.log(em)
-				// console.log(e)
-				alert("请确认填入数据的准确性");
-			}
-		})
-	})
-})*/
-
-/*
-$("#registerAndLogin_button").click(function(){
-		$.post("http://localhost:63342/PHP/注册.php",$("#register_table").serialize(),function(res){
-			alert(res)
-		},"json")
-	})
-function checkAll() {
-	if(username1 &&truename1 && gender&& p1 && p2 && ema && phone1 &&address) {
-		regiterfn()
-		async function regiterfn(){
-			let answer=await pAjax({
-				url:'http://localhost:63342/PHP/注册.php',
-				data:{
-					username:document.tijiao.username.value,
-                    truename:document.tijiao.truename.value,
-                    gender:document.tijiao.gender.value,
-					password:document.tijiao.password.value,
-                    email:document.tijiao.email.value,
-                    phone:document.tijiao.phone.value,
-                    address:document.tijiao.address.value
-				}
-			})
-			if(answer=='用户名已存在'){
-				inputs[0].nextElementSibling.innerHTML='用户名已存在'
-				inputs[0].nextElementSibling.style.color='red'
-				return false;
-			}else{
-				return true;
-			}
-		}
-		
-	} else {
-		checkUsername(document.tijiao.username.value)
-        checkTruename(document.tijiao.truename.value)
-		checkGender(document.tijiao.gender.value)
-		checkPassword(document.tijiao.password.value)
-        checkEmail(document.tijiao.email.value)
-		checkPhone(document.tijiao.phone.value)
-        checkAddress(document.tijiao.address.value)
-        return false
-	}
-}*/
-
-//原文链接：https://blog.csdn.net/lff18277233091/article/details/104072898

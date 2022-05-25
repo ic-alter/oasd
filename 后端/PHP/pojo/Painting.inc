@@ -1,6 +1,5 @@
 <?php
 
-include "base.php";
 class Painting{
     public $id;
     public $title;

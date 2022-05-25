@@ -74,7 +74,15 @@ function jump_to_home(){
 	window.location.replace("./home.html");
 }
 
+function turn_to_home(){
+	alert("您已经登录了");
+	window.location.replace("./home.html");
+}
+
 $(document).ready(function(){
+	if(getCookie("username")!=null){
+		turn_to_home();
+	}
 	$("#registerAndLogin_button").click(function(){
 		if(checkAll()){
 		var username = $("#username").val();
