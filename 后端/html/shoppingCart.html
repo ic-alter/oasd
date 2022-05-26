@@ -45,40 +45,23 @@
 
 
         <div id="shop-box">
- 
+			<h2>购物车</h2>
 			<!-- 头部 商品数量 -->
 			<div id="top-box">
 				<div class="top_num" style="color: red;">
-					全部商品 2
+					全部商品 <span>2</span>
 				</div>
  
 				
 			</div>
  
-			<!-- 商品导航栏 -->
-			<div id="navigationBar-box">
-				<div class="check"><input type="checkbox" id="ck_top" onclick="check1()"></div>
-				<div class="top-text text">全选</div>
-				<div class="top-text text">商品</div>
-				<div class="top-box"></div>
-				<!--<div class="top-text text">单价</div>
-				<div class="top-text text">数量</div>-->
-				<div class="top-text text">小计</div>
-				<div class="top-text text">操作</div>
-			</div>
  
 			<!-- 商品区 -->
 			<!-- 商品一 -->
 			<div id="commodity-box">
-				<!-- 店铺名 -->
-				<div class="shop">
-					<div class="check"><input type="checkbox" name="ck1" class="ck_1_1" onclick="check3()"></div>
-					<div class="text"><b>官方自营</b></div>
-				</div>
 				<!-- 商品详情 -->
 				<div id="commodit-1">
  
-					<div class="check"><input type="checkbox" name="ck1" class="ck_1_2" onclick="check4()"></div>
  
 					<div class="com">
  
@@ -88,6 +71,7 @@
 						<div class="commodityInformation">
 							<div class="comIn text2">购物车商品1</div>
                             <div class="comIn text2">作者1</div>
+							<div class="comIn text2">出售者:<span>一个富婆</span></div>
 						</div>
 						<div class="cusSel">
 							<div class="text2">
@@ -101,54 +85,12 @@
 							<input min="1" max="200" value="1" class="num" />
 							<button class="plus">+</button>
 						</div>-->
-						<div class="prices text2"><b>￥499.00</b></div>
+						<div class="prices text2"><b>499.00</b></div>
 						<div class="delAtt">
 							<div class="del text2">删除</div>
 							<div class="shift text2">商品已被他人购买</div>
 						</div>
  
-					</div>
- 
-				</div>
- 
-			</div>
- 
-			<!-- 商品二 -->
-			<div id="commodity-box">
-				<!-- 店铺名 -->
-				<div class="shop">
-					<div class="check"><input type="checkbox" name="ck2" class="ck_2_1" onclick="check3()"></div>
-					<div class="text"><b>个人卖家xxx</b></div>
-				</div>
-				<!-- 商品详情 -->
-				<div id="commodit-2">
- 
-					<div class="check"><input type="checkbox" name="ck2" class="ck_2_2" onclick="check4()"></div>
-					<div class="com">
-						<div>
-							<img src="../imgs/testShoppingCart2.png" class="comImg">
-						</div>
-						<div class="commodityInformation">
-							<div class="comIn text2">购物车商品2</div>
-                            <div class="comIn text2">作者1</div>
-						</div>
-						<div class="cusSel">
-							<div class="text2">
-								这是商品的介绍这是商品的介绍这是商品的介绍这是商品的介绍这是商品的介绍
-							</div>
-						</div>
-						<div style="width: 100px; height: inherit;"></div>
-						<!--<div class="price text2">￥699.00</div>
-						<div class="number">
-							<button class="minus">-</button>
-							<input min="1" max="200" value="1" class="num" />
-							<button class="plus">+</button>
-						</div>-->
-						<div class="prices text2"><b>￥699.00</b></div>
-						<div class="delAtt">
-							<div class="del text2">删除</div>
-							<div class="shift text2">商品已被他人购买</div>
-						</div>
 					</div>
  
 				</div>
@@ -158,8 +100,7 @@
 			<!-- 结算框 -->
 			<div id="payment-box">
 				<div class="foot foot-box"></div>
-				<div class="foot-text1">已选中<span class="quantity">1</span>件商品信息</div>
-				<div class="foot-text2">总价(万美元): <span class="total">￥0.00</span></div>
+				<div class="foot-text2">总价(万美元): <span class="total">0.00</span></div>
 				<div><button class="payment">去结算</button></div>
 			</div>
 		</div>

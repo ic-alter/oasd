@@ -9,7 +9,7 @@
 }
  
 #shop-box{
-    background: rgba(237, 224, 255, 0.8);
+    background: rgba(229, 229, 230, 0.8);
     margin-top: 8%;
     margin-bottom: 8%;
     margin-left: 10%;
@@ -46,7 +46,7 @@
 #top-box,
 #navigationBar-box,
 #payment-box {
-	width: 990px;
+	width: 90%;
 	height: 43px
 }
  
@@ -68,10 +68,6 @@
 	line-height: 18px;
 }
  
-/* 导航栏背景色 */
-#navigationBar-box {
-	background-color: rgb(243, 243, 243);
-}
  
 /* 单选框样式 */
 .check {
@@ -91,17 +87,11 @@
  
 /* 商品部分开始 */
 #commodity-box {
-	width: 990px;
+	width: 90%;
 	height: 150px;
 	margin-bottom: 2px;
 }
  
-/* 店铺详情开始 */
-.shop {
-	width: inherit;
-	display: flex;
-	flex-direction: row;
-}
  
  /* 商品详情开始 */
 #commodit-1,#commodit-2 {
@@ -227,6 +217,11 @@
 	background-color: rgb(9, 13, 250);
 	color: white;
 }
+
+.payment:hover{
+	background-color: rgb(250, 13, 9);
+	cursor: pointer;
+}
  
 .text:hover {
 	color: red;
@@ -234,6 +229,7 @@
  
 .del:hover {
 	color: red;
+	cursor: pointer;
 }
  
 /* bom中的点击绑定事件 */

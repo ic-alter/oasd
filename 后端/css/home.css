@@ -1,5 +1,6 @@
 .shouye_body{
-    background-color: #333;
+    background-image:url("../imgs/shoppingCartBackground.png");
+    background-attachment:fixed;
 }
 
 .index img{
