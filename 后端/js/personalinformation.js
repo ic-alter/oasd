@@ -61,26 +61,49 @@ function add_money(){
     }
 }
 
+function setCookie(cname,cvalue,exdays){
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    alert(cname+" "+ cvalue);
+    document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/html/";
+  }
+  function getCookie(name){
+      var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+      if(arr != null) return unescape(arr[2]);
+      return null;
+     }
+  function delCookie(name) {
+    setCookie(name,getCookie(name),-1);
+  }
+
 function want_to_update(id){
-    $.ajax({
-        url: "http://localhost:63342/PHP/want_to_update.php",  
-        type: "POST",
-        data:{
-            "PaintingID":id
-           },
-        //dataType: "json",
-        //async: false,
-        error: function(){  
-            alert('网络错误');  
-        },  
-        success: function(data,status){//如果调用php成功 
-           //alert(data);
-        }  
-    })
+    setCookie("update",id,0.001);
 }
 
 function want_to_delete(id){
-    alert("你想要删除"+id);
+    var flag = confirm("确认要删除吗?删掉可就再也不能恢复了(╯︵╰)");
+    if(flag){
+        $.ajax({
+            url: "http://localhost:63342/PHP/delete_painting.php",  
+            type: "POST",
+            data:{
+                "username":getCookie("username"),
+                "PaintingID":id
+               },
+            //dataType: "json",
+            //async: false,
+            error: function(){  
+                alert('网络错误');  
+            },  
+            success: function(data,status){//如果调用php成功 
+               alert(data);
+               fetchMyUpload();  
+            }  
+        })
+    } else{
+        alert("刚想把这个艺术品吃掉的说￣へ￣，不删就不删罢");
+    }
 }
 
 function fetchMyUpload(){
@@ -120,7 +143,7 @@ function fetchMyUpload(){
                 }
            }
            html+=`</table>`;
-           console.log(html);
+           //console.log(html);
            document.getElementById("my_upload").innerHTML = html;
            
         }  

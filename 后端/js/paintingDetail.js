@@ -66,7 +66,8 @@ $(document).ready(function(){
 			 url: "http://localhost:63342/PHP/painting_detail.php",  
 			 type: "GET",
 			 data:{
-				 "id":id
+				 "id":id,
+                 "source":"paintingDetail",
 				},
 			 dataType: "json",
 			 //async: false,

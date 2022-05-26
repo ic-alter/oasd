@@ -4,6 +4,8 @@ class Painting{
     public $id;
     public $title;
     public $artist;
+    public $FirstName;
+    public $LastName;
     public $img_path;
     public $YearOfWork;
     public $cost;
@@ -41,6 +43,8 @@ class Painting{
             $res2 = mysqli_query($conn, $sql_artist);
             $row2 = mysqli_fetch_assoc($res2);
             if($row2){//存在某些作品的作者未定义
+                $this->FirstName = $row2['FirstName'];
+                $this->LastName = $row2['LastName'];
                 $this->artist = $row2['FirstName'].' '.$row2['LastName'];
             }
 
@@ -61,7 +65,7 @@ class Painting{
             $this->title = $row['Title'];
             $this->img_path = $row['ImageFileName'];
             $this->YearOfWork = $row['YearOfWork'];
-            $this->cost = $row['Cost']."万美元";
+            $this->cost = $row['Cost'];
             $this->height = $row['Height'];
             $this->width = $row['Width'];
             $this->description = $row['Description'];

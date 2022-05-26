@@ -1,3 +1,5 @@
+let is_update = false;
+let PaintingID = 0;
 
 function changepic() {
     var reads = new FileReader();
@@ -8,6 +10,69 @@ function changepic() {
     //$("#img3").css("display", "block");
     };
    }
+
+   function setCookie(cname,cvalue,exdays){
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    alert(cname+" "+ cvalue);
+    document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/html/";
+  }
+  function getCookie(name){
+      var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+      if(arr != null) return unescape(arr[2]);
+      return null;
+     }
+  function delCookie(name) {
+    setCookie(name,getCookie(name),-1);
+  }
+
+function cannot_change_img(){
+    alert("修改艺术品信息时不得更改图片和标题(都换了图片了还能算同一件艺术品吗……可爱的mizuki建议您这边新上传一个呢,或者去楼下酒吧点个炒饭)");
+}
+
+function getInformation(data){
+    document.getElementById("view_upload_img").src = '../painting_imgs/'+data.img_path;
+    document.getElementById("upload_img").setAttribute("onclick","cannot_change_img()");
+    document.getElementById("title").value = data.title;
+    document.getElementById("title").setAttribute("readOnly",true);
+    document.getElementById("FirstName").value = data.FirstName;
+    document.getElementById("LastName").value = data.LastName;
+    document.getElementById("description").value = data.description;
+    document.getElementById("YearOfWork").value = data.YearOfWork;
+    document.getElementById("genre").value = data.genre;
+    document.getElementById("height").value = data.height;
+    document.getElementById("width").value = data.width;
+    document.getElementById("cost").value = data.cost;
+}   
+
+function check_if_update_and_fetch(){
+    if(getCookie("update")!=null){
+        is_update=true;
+        PaintingID = getCookie("update");
+        //alert("is_update = "+is_update+" ,PaintingID="+PaintingID);
+        delCookie("update");
+        $.ajax({
+            url: "http://localhost:63342/PHP/painting_detail.php",  
+            type: "GET",
+            data:{
+                "id":PaintingID,
+                "source":"uploadPainting"
+               },
+            dataType: "json",
+            //async: false,
+            error: function(){  
+                alert('网络错误');  
+                alert(data);
+            },  
+            success: function(data,status){//如果调用php成功 
+               //alert(status);
+               //alert(data.title);
+               getInformation(data);
+            }   
+        })
+    }
+}
 
 function mean(t, flag, intext) {
 	let va = t.value;
@@ -38,33 +103,7 @@ function getImgName(t){
 }
 
 function checkText(t){
-	let va = t.value;
-    if(va!=""){
-        checkResult = true;
-        return mean(t, checkResult);
-    }else{
-		checkResult = false;
-        //let info = '格式错误,';
-        let intext = `*&nbsp;不能包含特殊字符`;
-        return mean(t, checkResult,intext);
-    }
-}
-
-function checkImg(t){
-    let ext= getImgName(t);
-    if(ext =='.PNG' || ext =='.JPG' || ext =='.JPEG' || ext =='.png' || ext =='.jpg' || ext =='.jpeg'){
-        t.nextElementSibling.innerHTML = '图片上传完成'
-		t.nextElementSibling.style.color = 'green'
-        changepic();
-		return true;
-    } else {
-        t.nextElementSibling.innerHTML = `*&nbsp;请上传png,jpg,jpeg格式的艺术品图片`;
-        t.nextElementSibling.style.color = 'red'
-    }
-}
-
-function check(t) {//0
-    let reg = /^([\u4e00-\u9fa5]|\w){1,16}$/;
+    let reg = /^[^\s]+[\s]*.+$/;
 	let va = t.value;
     if(reg.test(va)){
         checkResult = true;
@@ -72,7 +111,40 @@ function check(t) {//0
     }else{
 		checkResult = false;
         //let info = '格式错误,';
-        let intext = `*&nbsp;不能包含特殊字符`;
+        let intext = `*&nbsp;长度须大于1且首字非空格`;
+        return mean(t, checkResult,intext);
+    }
+}
+
+function checkImg(t){
+    let ext= getImgName(t);
+    if(!is_update){
+        if(ext =='.PNG' || ext =='.JPG' || ext =='.JPEG' || ext =='.png' || ext =='.jpg' || ext =='.jpeg'){
+            t.nextElementSibling.innerHTML = '图片上传完成'
+            t.nextElementSibling.style.color = 'green'
+            changepic();
+            return true;
+        } else {
+            t.nextElementSibling.innerHTML = `*&nbsp;请上传png,jpg,jpeg格式的艺术品图片`;
+            t.nextElementSibling.style.color = 'red';
+            return false;
+        }
+    } else {
+        return true;
+    }
+    
+}
+
+function check(t) {//0
+    let reg = /^[^\s]+[\s]*.+$/;
+	let va = t.value;
+    if(reg.test(va)){
+        checkResult = true;
+        return mean(t, checkResult);
+    }else{
+		checkResult = false;
+        //let info = '格式错误,';
+        let intext = `*&nbsp;长度须大于1且首字非空格`;
         return mean(t, checkResult,intext);
     }
 }
@@ -157,17 +229,25 @@ function turn_to_login(){
     window.location.replace("./login.html");
 }
 
+function jump_to_detail(id){
+    window.location.replace("./paintingDetail.html?id="+id);
+}
+
 
 $(document).ready(function(){
     if(getCookie("username")==null){
         turn_to_login();
     }
+    is_update = false;
+    PaintingID = 0;
+    check_if_update_and_fetch();
 	$("#upload_submit_button").click(function(){
 		if(checkAll()){
 		$.ajax({
 			 url: "http://localhost:63342/PHP/upload_painting.php",  
 			 type: "POST",
 			 data:{
+                 "type":PaintingID,
 				 "img_path":getImgName(document.getElementById("true_upload_img")),
 				 "title":$("#title").val(),
                  "FirstName":$("#FirstName").val(),
@@ -192,7 +272,6 @@ $(document).ready(function(){
 			 },  
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
-				alert(data.msg);
 				//alert(data=="上传艺术品成功！");
 				if(data.msg=="艺术品上传成功"){
                     let path = "../painting_imgs/"+data.fileName+getImgName(document.getElementById("true_upload_img"));
@@ -200,6 +279,8 @@ $(document).ready(function(){
                     formData = new FormData();
                     formData.append("img",f);
                     formData.append("path",path);
+                    alert(data.msg);
+                    PaintingID = data.PaintingID;
                     $.ajax({
                         url:"http://localhost:63342/PHP/upload_painting_img.php",
                         type:'POST',
@@ -216,7 +297,13 @@ $(document).ready(function(){
                             console.log(response);
                         }
                     });
-				}
+                    jump_to_detail(PaintingID);
+				} else if(data.msg == "修改艺术品信息成功"){
+                    alert(data.msg);
+                    jump_to_detail(PaintingID);
+                } else{
+                    alert('网络错误');
+                }
 			 }
 		});
 		} else alert("输入格式错误！");

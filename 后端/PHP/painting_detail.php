@@ -38,7 +38,9 @@ if (!$row){
     $res=mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($res);
     $painting = new Painting($conn,$row);
-    $painting->heat_add1($conn);
+    if ($_GET['source']=="paintingDetail"){
+        $painting->heat_add1($conn);
+    }
     header("Content-type: application/json; charset=utf-8");
     echo json_encode($painting,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 

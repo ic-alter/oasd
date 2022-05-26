@@ -15,11 +15,12 @@ function setCookie(cname,cvalue,exdays){
       exp.setTime(exp.getTime() - 1);*/
       var cval = getCookie(name);
       //alert("cval = "+cval);
-      setCookie("username",getCookie("username"),-1);
+      setCookie(name,getCookie(name),-1);
   }
 
 function logout(){
     delCookie("username");
+    delCookie("update");
     window.location.replace("./home.html");
 }
 

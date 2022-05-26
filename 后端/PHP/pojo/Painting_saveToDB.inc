@@ -115,4 +115,22 @@ class Painting_saveToDB{
         $res_update_file = mysqli_query($conn,$sql_update_file);
         return "艺术品上传成功";
     }
+    public function update_to_DB($conn,$PaintingID): string
+    {
+
+        $this->get_or_create_ArtistID($conn);
+        $this->get_or_create_GenreID($conn);
+        /*写paintings表*/
+        $sql_update_painting = "UPDATE paintings SET
+        ArtistID='$this->ArtistID',YearOfWork='$this->YearOfWork',Cost='$this->cost',Height='$this->height',Width='$this->width',Description='$this->description',
+        update_time='$this->update_time',uploader='$this->uploader' WHERE PaintingID='$PaintingID';";
+        $res_update_painting = mysqli_query($conn,$sql_update_painting);
+
+        $this->PaintingID = $PaintingID;
+
+        /*写paintinggenres表*/
+        $sql_update_painting_genres = "UPDATE paintinggenres SET GenreID='$this->GenreID' WHERE PaintingID='$PaintingID';";
+        $res_update_painting_genres = mysqli_query($conn,$sql_update_painting_genres);
+        return "修改艺术品信息成功";
+    }
 }

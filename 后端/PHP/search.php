@@ -34,7 +34,7 @@ $OrderMethod = 1;*/
 $start = ($page-1)*$DATA_PER_PAGE;
 
 if ($search_text){
-    $p_sql_where = " WHERE Title='$search_text'";
+    $p_sql_where = " WHERE Title LIKE'%$search_text%'";
 } else if ($FirstName&&$LastName){
     $sql_artist = "select * from artists WHERE FirstName='$FirstName' and LastName='$LastName';";
     $res_artist = mysqli_query($conn,$sql_artist);
