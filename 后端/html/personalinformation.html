@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>个人信息</title>
-        <link href='../css/personalinformaion.css'  rel="stylesheet" type="text/css" />
+        <link href='../css/personalinformation.css'  rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <link href='../css/index.css'  rel="stylesheet" type="text/css" />
@@ -10,6 +10,7 @@
     </head>
     <body class="personal">
         <script src="../jQuery/jquery-3.6.0.js"></script>
+        <script src="../js/personalinformation.js"></script>
         <script src="../js/index.js"></script>
 
     <div class="top">
@@ -19,7 +20,7 @@
             <li>
                 <a id="index_myInformation" href="">我的</a>
                 <div class="dropdown-content">
-                    <a href="./personalinformaion.html">个人中心</a>
+                    <a href="./personalinformation.html">个人中心</a>
                     <a href="./shoppingCart.html">购物车</a>
                     <a href="./uploadPainting.html">发布艺术品</a>
                     <a onclick="logout()" href="./home.html">退出登录</a>
@@ -50,49 +51,44 @@
                 <p class="my_title">个人信息</p>
                 <table border="1">
                     <tr>
-                        <td>用户名</td> <td>雷火剑</td>
+                        <td>用户名</td> <td id="personal_username">加载中</td>
                     </tr>
                     <tr>
-                        <td>电话</td> <td>12315123151</td>
+                        <td>电话</td> <td id="personal_phone">加载中</td>
                     </tr>
                     <tr>
-                        <td>邮箱</td> <td>1234567890@qq.com</td>
+                        <td>邮箱</td> <td id="personal_email">加载中</td>
                     </tr>
                     <tr>
-                        <td>地址</td> <td>某某省某某市某某路114514号</td>
+                        <td>地址</td> <td id="personal_address">加载中</td>
                     </tr>
                     <tr>
-                        <td>余额</td> <td>114514</td>
+                        <td>余额</td> <td id="personal_money">加载中</td>
                     </tr>
                 </table>
-                <button id="ke_jin" value="充值">充值</button>
+                <button id="ke_jin" value="充值" onclick="add_money()">充值</button>
             </div>
             <div class="personal_works">
                 <div class="my_upload">
                     <p class="my_title">我上传的艺术品</p>
+                    <span id="my_upload">
                     <table border="1">
                         <tr>
                             <th>艺术品名称</th>
                             <th>发布日期</th>
                             <th>操作</th>
                         </tr>
-                        <tr>
+                            <tr><td colspan="3">暂无数据</td></tr>
+                            <!--<tr>
                             <td>作品1</td>
                             <td>2022.4.14</td>
                             <td class="update_delete">
                                 <a href="#">修改</a>
                                 <a href="#">删除</a>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>作品2</td>
-                            <td>2022.2.31</td>
-                            <td class="update_delete">
-                                <a href="#">修改</a>
-                                <a href="#">删除</a>
-                            </td>
-                        </tr>
+                        </tr>-->
                     </table>
+                    </span>
                 </div>
                 <div class="my_order">
                     <p class="my_title">我的订单</p>
