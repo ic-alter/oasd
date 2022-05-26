@@ -29,7 +29,7 @@ function search_or_detail(){
     if(window.location.pathname!="/html/paintingDetail.html"){
         window.location.replace("./search.html");
     } else{
-        alert("您已经处在艺术品详情界面");
+        alert("这里就是艺术品详情界面哦");
     }
 }
 
@@ -41,6 +41,7 @@ $(document).ready(function(){
         index_register.style.display = 'none';
         var index_login = document.getElementById('index_login');
         index_login.style.display = 'none';
+        document.getElementById("index_myInformation").innerHTML = getCookie("username");
     } else {
         var index_myInformation = document.getElementById('index_myInformation');
         index_myInformation.style.display = 'none';

@@ -8,8 +8,9 @@
 		<link href='../css/index.css'  rel="stylesheet" type="text/css" />
     </head>
     <body class="shop-car">
-
+		<script src="../jQuery/jquery-3.6.0.js"></script>
 		<script src="../js/index.js"></script>
+		<script src="../js/shoppingCart.js"></script>
 
     <div class="top">
         <center> 
@@ -32,7 +33,7 @@
             </div>
             <div id="left">
             <li><a href="#"><img src="../imgs/img_hero04.jpg" alt="logo"></a></li>
-            <li><a href="#"><strong>mizuki</strong></a></li>
+            <li><a href="#"><strong>水月mizuki</strong></a></li>
             </div>
             </ul>
         </center>      
@@ -49,22 +50,21 @@
 			<!-- 头部 商品数量 -->
 			<div id="top-box">
 				<div class="top_num" style="color: red;">
-					全部商品 <span>2</span>
+					全部商品 <span id="painting_num">0</span>
 				</div>
- 
+				<div id="payment-box">
+					<div class="foot foot-box"></div>
+					<div class="foot-text2">总价(万美元): <span class="total" id="total_cost">0.00</span></div>
+					<div><button onclick="make_order()" class="payment">去结算</button></div>
+				</div>
 				
 			</div>
  
- 
-			<!-- 商品区 -->
-			<!-- 商品一 -->
-			<div id="commodity-box">
-				<!-- 商品详情 -->
-				<div id="commodit-1">
- 
- 
+
+			<span id="commodity-box">
+				<h3>暂无艺术品在购物车内</h3>
+				<!--<div class="commodit">
 					<div class="com">
- 
 						<div>
 							<img src="../imgs/testShoppingCart1.png" class="comImg">
 						</div>
@@ -79,30 +79,17 @@
 							</div>
 						</div>
 						<div style="width: 100px; height: inherit;"></div>
-						<!--<div class="price text2">￥499.00</div>
-						<div class="number">
-							<button class="minus">-</button>
-							<input min="1" max="200" value="1" class="num" />
-							<button class="plus">+</button>
-						</div>-->
 						<div class="prices text2"><b>499.00</b></div>
 						<div class="delAtt">
 							<div class="del text2">删除</div>
 							<div class="shift text2">商品已被他人购买</div>
 						</div>
- 
 					</div>
+				</div>-->
  
-				</div>
- 
-			</div>
- 
-			<!-- 结算框 -->
-			<div id="payment-box">
-				<div class="foot foot-box"></div>
-				<div class="foot-text2">总价(万美元): <span class="total">0.00</span></div>
-				<div><button class="payment">去结算</button></div>
-			</div>
+			</span>
+
+			
 		</div>
     </body>
 </html>

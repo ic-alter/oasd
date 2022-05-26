@@ -5,8 +5,8 @@ function getCookie(name){
    }
 
 function turn_to_login(){
-    alert("请先登录");
     window.location.replace("./login.html");
+    alert("不登录的话就算直接输网址也是进不来的罒ω罒");
 }
 
 function fetchUser(){
@@ -19,7 +19,7 @@ function fetchUser(){
         dataType: "json",
         //async: false,
         error: function(){  
-            alert('网络错误');  
+            alert('emmm  好像断网了呢(´д｀)……');  
         },  
         success: function(data,status){//如果调用php成功 
            //alert(status);
@@ -48,7 +48,7 @@ function add_money(){
             //dataType: "json",
             //async: false,
             error: function(){  
-                alert('网络错误');  
+                alert('emmm  好像断网了呢(´д｀)……');  
             },  
             success: function(data,status){//如果调用php成功 
                alert(data);
@@ -65,7 +65,7 @@ function setCookie(cname,cvalue,exdays){
     var d = new Date();
     d.setTime(d.getTime()+(exdays*24*60*60*1000));
     var expires = "expires="+d.toGMTString();
-    alert(cname+" "+ cvalue);
+    //alert(cname+" "+ cvalue);
     document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/html/";
   }
   function getCookie(name){
@@ -94,7 +94,7 @@ function want_to_delete(id){
             //dataType: "json",
             //async: false,
             error: function(){  
-                alert('网络错误');  
+                alert('emmm  好像断网了呢(´д｀)……');  
             },  
             success: function(data,status){//如果调用php成功 
                alert(data);
@@ -116,7 +116,7 @@ function fetchMyUpload(){
         dataType: "json",
         //async: false,
         error: function(){  
-            alert('网络错误');  
+            alert('emmm  好像断网了呢(´д｀)……');  
         },  
         success: function(data,status){//如果调用php成功 
            //alert(status);
@@ -150,10 +150,88 @@ function fetchMyUpload(){
     })
 }
 
+function fetchMyOrder(){
+    $.ajax({
+        url: "http://localhost:63342/PHP/fetchMyOrder.php",  
+        type: "POST",
+        data:{
+            "username":getCookie("username")
+           },
+        dataType: "json",
+        //async: false,
+        error: function(){  
+            alert('emmm  好像断网了呢(´д｀)……');  
+        },  
+        success: function(data,status){//如果调用php成功 
+           //console.log(data);
+            var html = `<tr>
+                <th>订单号</th>
+                <th>作品名称</th>
+                <th>订单时间</th>
+                <th>金额</th>                                                 
+            </tr>`;
+            let size = data.length;
+            if(size==0){
+                html+=`<tr><td colspan="4">暂无数据</td></tr>`;
+            } else{
+                for(let i = 0 ;i<size;i++){
+                    html+=`<tr>
+                        <td>`+ data[i].OrderID +`</td>
+                        <td>`+ data[i].painting.title +`</td>
+                        <td>`+ data[i].OrderTime +`</td>
+                        <td>`+ data[i].painting.cost +`</td>
+                    </tr>`;
+                }
+            }
+            document.getElementById("my_order").innerHTML=html;
+        }  
+    })
+}
+
+function fetchMySell(){
+    $.ajax({
+        url: "http://localhost:63342/PHP/fetchMySell.php",  
+        type: "POST",
+        data:{
+            "username":getCookie("username")
+           },
+        dataType: "json",
+        //async: false,
+        error: function(){  
+            alert('emmm  好像断网了呢(´д｀)……');  
+        },  
+        success: function(data,status){//如果调用php成功 
+           console.log(data);
+            var html = `<tr>
+                <th>艺术品信息</th>
+                <th>卖出时间</th>
+                <th>买家信息</th>
+                <th>买家地址</th>
+            </tr>`;
+            let size = data.length;
+            if(size==0){
+                html+=`<tr><td colspan="4">暂无数据</td></tr>`;
+            } else{
+                for(let i = 0 ;i<size;i++){
+                    html+=`<tr>
+                    <td>`+ data[i].painting.title +`<br>`+ data[i].painting.cost +`万美元</td>
+                    <td>`+ data[i].OrderTime +`</td>
+                    <td>账号:`+ data[i].user.username +`<br>电话:`+ data[i].user.phone +`<br>邮箱:`+ data[i].user.email +`</td>
+                    <td>`+ data[i].user.address +`</td>
+                </tr>`;
+                }
+            }
+            document.getElementById("my_sell").innerHTML=html;
+        }  
+    })
+}
+
 $(document).ready(function(){
     if(getCookie("username")==null){
         turn_to_login();
     }
     fetchUser();
     fetchMyUpload();
+    fetchMyOrder();
+    fetchMySell();
 })

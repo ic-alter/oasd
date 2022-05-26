@@ -28,7 +28,7 @@ function changepic() {
   }
 
 function cannot_change_img(){
-    alert("修改艺术品信息时不得更改图片和标题(都换了图片了还能算同一件艺术品吗……可爱的mizuki建议您这边新上传一个呢,或者去楼下酒吧点个炒饭)");
+    alert("修改艺术品信息时不能更改图片和标题(都换了图片了还能算同一件艺术品吗……可爱的mizuki建议您这边新上传一个呢,或者去楼下酒吧点个炒饭)");
 }
 
 function getInformation(data){
@@ -44,6 +44,10 @@ function getInformation(data){
     document.getElementById("height").value = data.height;
     document.getElementById("width").value = data.width;
     document.getElementById("cost").value = data.cost;
+    if(data.is_sold!=0){
+        document.getElementById("cost").setAttribute("readOnly",true);
+    }
+    alert("mizuki的贴心提示:修改艺术品时图片和标题都不能改，如果已经出售那么价格也不能改。你说……如果非要改的话? 嗯~,mizuki可是会把无理取闹的坏人吃掉的哦");
 }   
 
 function check_if_update_and_fetch(){
@@ -62,7 +66,7 @@ function check_if_update_and_fetch(){
             dataType: "json",
             //async: false,
             error: function(){  
-                alert('网络错误');  
+                alert('emmm  好像断网了呢(´д｀)……');  
                 alert(data);
             },  
             success: function(data,status){//如果调用php成功 
@@ -225,8 +229,8 @@ function getCookie(name){
    }
 
 function turn_to_login(){
-    alert("请先登录");
     window.location.replace("./login.html");
+    alert("不登录的话就算直接输网址也是进不来的罒ω罒");
 }
 
 function jump_to_detail(id){
@@ -267,7 +271,7 @@ $(document).ready(function(){
 			 dataType: "json",
 			 //async: false,
 			 error: function(){  
-				 alert('网络错误');  
+				 alert('emmm  好像断网了呢(´д｀)……');  
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
@@ -302,7 +306,7 @@ $(document).ready(function(){
                     alert(data.msg);
                     jump_to_detail(PaintingID);
                 } else{
-                    alert('网络错误');
+                    alert('emmm  好像断网了呢(´д｀)……');
                 }
 			 }
 		});

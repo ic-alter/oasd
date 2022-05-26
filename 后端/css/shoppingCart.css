@@ -9,9 +9,9 @@
 }
  
 #shop-box{
-    background: rgba(229, 229, 230, 0.8);
-    margin-top: 8%;
-    margin-bottom: 8%;
+    background: rgba(229, 229, 230, 0.6);
+    margin-top: 5%;
+    margin-bottom: 3%;
     margin-left: 10%;
     margin-right: 10%;
     border-style: double;
@@ -19,7 +19,13 @@
     border-radius :5em;
     text-align: center;
     padding: 2%;
+	min-height:550px;
+	overflow-y: auto;
 }
+
+#shop-box:-webkit-scrollbar{display:none;}
+
+
 /* 购物车整体和商品部分 */
 #shop-box,
 #commodity-box,
@@ -31,9 +37,6 @@
  
 /* 横向排列 */
 #top-box,
-#navigationBar-box,
-#commodit-1,
-#commodit-2,
 .com,
 .number,
 #payment-box {
@@ -68,43 +71,27 @@
 	line-height: 18px;
 }
  
- 
-/* 单选框样式 */
-.check {
-	width: 20px;
-	height: inherit;
-	padding: 10px 8px 0px 10px;
-}
- 
-/* 导航栏布局 */
-.top-text {
-	width: 100px;
-}
- 
-.top-box {
-	width: 390px;
-}
+
  
 /* 商品部分开始 */
 #commodity-box {
 	width: 90%;
 	height: 150px;
-	margin-bottom: 2px;
+	margin-bottom: 30px;
 }
  
- 
- /* 商品详情开始 */
-#commodit-1,#commodit-2 {
+
+.commodit {
 	/* background-color: rgba(243, 243, 243,20%); */
-	padding-top: 6px;
 	border-top: 2px rgba(0, 0, 0, 60%) solid;
 	border-left: 1px rgba(0, 0, 0, 20%) solid;
 	border-right: 1px rgba(0, 0, 0, 20%) solid;
 	border-bottom: 1px rgba(0, 0, 0, 20%) solid;
+	margin-top:3%;
 }
  
 .com {
-	width: 952px;
+	width: 100%;
 	padding-top: 6px;
 }
  
@@ -142,12 +129,12 @@
 	border-width: 1px;
 }
  
-.num {
+/*.num {
 	width: 40px;
 	height: 20px;
 	outline: none;
 	border-width: 1px 0px 1px 0px;
-}
+}*/
  
 .minus,
 .plus,
@@ -179,7 +166,7 @@
 }
  
 .foot-text2 {
-	width: 130px;
+	width: 200px;
 	font-size: 12px;
 	text-align: center;
 }
@@ -236,3 +223,4 @@
 .comBgColor {
 				background-color: rgb(255,244,232);
 			}
+

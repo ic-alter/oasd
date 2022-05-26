@@ -66,7 +66,7 @@ function ajaxFetchData(){
         dataType: "json",
         //async: false,
         error: function(){  
-            alert('网络错误');  
+            alert('emmm  好像断网了呢(´д｀)……');  
             alert(data);
         },  
         success: function(data,status){//如果调用php成功 

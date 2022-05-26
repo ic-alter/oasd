@@ -94,15 +94,15 @@ $(document).ready(function(){
 			 //dataType: "json",
 			 //async: false,
 			 error: function(){  
-				 alert('网络错误');  
-				 alert(data);
+				 alert('emmm  好像断网了呢(´д｀)……');  
+				 //alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
-				alert(data);
+				alert(data.msg);
 				//alert(data=="登录成功");
-				if(data=="登录成功"){
-					setCookie("username",username,1);
+				if(data.msg=="登录成功"){
+					setCookie("username",data.username,1);
 					jump_to_home();
 					//var x = document.cookie;
 					//alert("此即为"+document.cookie);

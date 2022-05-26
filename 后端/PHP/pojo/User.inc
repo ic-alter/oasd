@@ -29,4 +29,10 @@ class User{
         $sql_update_money = "UPDATE user SET money='$this->money' WHERE username='$this->username';";
         $res_update_money = mysqli_query($conn,$sql_update_money);
     }
+
+    public function waste_money($conn,$moneyNum){
+        $this->money -= $moneyNum;
+        $sql_update_money = "UPDATE user SET money='$this->money' WHERE username='$this->username';";
+        $res_update_money = mysqli_query($conn,$sql_update_money);
+    }
 }

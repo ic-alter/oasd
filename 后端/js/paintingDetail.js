@@ -59,6 +59,71 @@ function getInformation(data){
     obj.innerHTML=data.is_sold==0?"否":"是";
 }
 
+function jsDateFormatter( dateInput ) {  // dateInput 是一个 js 的 Date 对象
+    var year = dateInput.getFullYear();
+    var month = dateInput.getMonth() + 1;
+    var theDate = dateInput.getDate();
+    var hour = dateInput.getHours();
+    var minute = dateInput.getMinutes();
+    var second = dateInput.getSeconds();
+    if ( month < 10 ) {
+        month = '0' + month;
+    }
+    if ( theDate < 10 ) {
+        theDate = '0' + theDate;
+    }
+    if ( hour < 10 ) {
+        hour = '0' + hour;
+    }
+    if ( minute < 10 ) {
+        minute = '0' + minute;
+    }
+    if ( second < 10 ) {
+        second = '0' + second;
+    }
+    return year +"-"+ month +"-" + theDate + " "+ hour +":"+ minute +":"+ second;
+}
+
+function getCookie(name){
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if(arr != null) return unescape(arr[2]);
+    return null;
+   }
+
+function turn_to_login(){
+    window.location.replace("./login.html");
+}
+
+function add_to_shoppingCart(){
+    if(getCookie("username")==null){
+        alert("要登录才能把艺术品加入购物车呢");
+        turn_to_login();
+    } else{
+        $.ajax({
+            url: "http://localhost:63342/PHP/add_to_shoppingCart.php",  
+            type: "POST",
+            data:{
+                "PaintingID":getQueryVariable("id"),
+                "username":getCookie("username"),
+                "EnteringTime":jsDateFormatter(new Date())
+               },
+            //dataType: "json",
+            //async: false,
+            error: function(){  
+                alert('emmm  好像断网了呢(´д｀)……');  
+                //alert(data);
+            },  
+            success: function(data,status){//如果调用php成功 
+               //alert(status);
+               alert(data);
+               //getInformation(data);
+               //$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
+            }
+       
+        })
+    }
+}
+
 $(document).ready(function(){
         //alert(getQueryVariable("id"));
         let id = getQueryVariable("id");
@@ -72,7 +137,7 @@ $(document).ready(function(){
 			 dataType: "json",
 			 //async: false,
 			 error: function(){  
-				 alert('网络错误');  
+				 alert('emmm  好像断网了呢(´д｀)……');  
 				 alert(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 

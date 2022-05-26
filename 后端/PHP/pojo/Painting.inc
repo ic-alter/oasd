@@ -92,4 +92,10 @@ class Painting{
         $res_heat = mysqli_query($conn, $sql_heat);
     }
 
+    public function sell($conn){
+        $id = $this->id;
+        $sql_sell = "UPDATE paintings SET is_sold=1 WHERE PaintingID='$id';";
+        $res_sell = mysqli_query($conn,$sql_sell);
+    }
+
 }
