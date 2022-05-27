@@ -56,9 +56,49 @@ function checkPassword(t) {//3
 		return mean(t, p1)
 	} else {
 		p1 = false;
-        let intext = '*&nbsp;应是至少六位的数字字母符号的组合'
+        let intext = '*&nbsp;至少六位，包含数字大小写字母和!@#$%^&*'
 		let info = '密码';
 		return mean(t, p1, info,intext)
+	}
+}
+
+function checkPassword_checkOnly(t) {//3
+	let reg = /^.*(?=.{6,})(?=.*[A-Za-z!@#$%^&*?]|\d).*$/;
+	let va = t.value;
+	if(reg.test(va)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function PasswordLevel(t){
+	let level = 0;
+	let va = t.value;
+	if(va.match(/[0-9]/)){
+		level++;
+	}
+	if(va.match(/[a-z]/)){
+		level++;
+	}
+	if(va.match(/[A-Z]/)){
+		level++;
+	}
+	if(va.match(/[!@#$%^&*?]/)){
+		level++;
+	}
+	if(!checkPassword_checkOnly(t)){
+		t.nextElementSibling.innerHTML = '格式错误☹';
+		t.nextElementSibling.style.color = 'red';
+	}else if(level<=1){
+		t.nextElementSibling.innerHTML = '弱■□□';
+		t.nextElementSibling.style.color = 'red';
+	} else if(level == 2){
+		t.nextElementSibling.innerHTML = '中■■□';
+		t.nextElementSibling.style.color = 'orange';
+	} else{
+		t.nextElementSibling.innerHTML = '强■■■';
+		t.nextElementSibling.style.color = 'green';
 	}
 }
 

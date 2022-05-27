@@ -37,7 +37,7 @@ function fetchUser(){
 function add_money(){
     var money_to_add = prompt("请输入充值的金额(单位:万美元)");
     let reg = /^[1-9]+\d*(\.\d{1,4})?$|^0\.\d{1,4}$/;
-    if(reg.test(money_to_add)&&money_to_add>0){
+    if(reg.test(money_to_add)&&money_to_add>0&&money_to_add<1000000){
         $.ajax({
             url: "../PHP/add_money.php",  
             type: "POST",
@@ -57,7 +57,7 @@ function add_money(){
             }  
         })
     }else{
-        alert("请输入正确的金额,应当为至多四位小数的正实数！");
+        alert("整数至多六位,小数至多四位,如果嫌六位太少可以直接把剩下的钱打给mizuki(*•ω•)");
     }
 }
 

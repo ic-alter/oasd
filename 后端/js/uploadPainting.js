@@ -173,13 +173,13 @@ function checkNum(t){
     //let reg = /^\d+(\.\d{1,4})?$/;
     let reg = /^[1-9]+\d*(\.\d{1,4})?$|^0\.\d{1,4}$/;
 	let va = t.value;
-	if(reg.test(va)&&va>0) {
+	if(reg.test(va)&&va>0&&reg<1000000) {
 		checkResult = true;
 		return mean(t, checkResult)
 	} else {
 		checkResult = false;
 		//let info = '格式错误,';
-        let intext = `*&nbsp;请填写正数,至多四位小数`;
+        let intext = `*&nbsp;整数至多六位,小数至多四位`;
 		return mean(t, checkResult,intext)
 	}
 }

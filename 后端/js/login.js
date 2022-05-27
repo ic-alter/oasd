@@ -40,7 +40,7 @@ function checkPassword(t) {//3
 		return mean(t, p1)
 	} else {
 		p1 = false;
-        let intext = '*&nbsp;应是至少六位的数字字母符号的组合'
+        let intext = '*&nbsp;至少六位，包含数字大小写字母和!@#$%^&*?'
 		let info = '密码';
 		return mean(t, p1, info,intext)
 	}
