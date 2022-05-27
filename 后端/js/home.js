@@ -101,7 +101,7 @@ function clk(){
 $(document).ready(function(){
     clk();
 		$.ajax({
-			 url: "http://localhost:63342/PHP/three_hot.php",  
+			 url: "../PHP/three_hot.php",  
 			 type: "GET",
 			 /*data:{
 				 "id":id
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		
 	})
     $.ajax({
-        url: "http://localhost:63342/PHP/three_new.php",  
+        url: "../PHP/three_new.php",  
         type: "GET",
         /*data:{
             "id":id

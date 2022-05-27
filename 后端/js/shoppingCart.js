@@ -48,7 +48,7 @@ function make_order(){
         var flag = confirm("确认下单吗？(づ｡◕ᴗᴗ◕｡)づ");
         if(flag){
             $.ajax({
-                url: "http://localhost:63342/PHP/make_order.php",  
+                url: "../PHP/make_order.php",  
                 type: "POST",
                 data:{
                     "total_cost":total_cost,
@@ -77,7 +77,7 @@ function delete_shoppingCart(PaintingID){
     var flag = confirm("真的要删除吗?(ｉДｉ)");
     if(flag){
         $.ajax({
-            url: "http://localhost:63342/PHP/delete_shoppingCart.php",  
+            url: "../PHP/delete_shoppingCart.php",  
             type: "POST",
             data:{
                 "PaintingID":PaintingID,
@@ -141,7 +141,7 @@ function getInformation(data){
             total_cost+= parseFloat(data[i].Painting.cost);
         }
     }
-    //console.log(html);
+    console.log(html);
     document.getElementById("commodity-box").innerHTML = html;
     document.getElementById("total_cost").innerHTML= total_cost;
 
@@ -152,7 +152,7 @@ function fetchShoppingCart(){
     total_cost = 0;
     can_buy =1;
     $.ajax({
-        url: "http://localhost:63342/PHP/check_shoppingCart.php",  
+        url: "../PHP/check_shoppingCart.php",  
         type: "POST",
         data:{
             "username":getCookie("username"),
@@ -165,7 +165,7 @@ function fetchShoppingCart(){
         },  
         success: function(data,status){//如果调用php成功 
            //console.log(data);
-           //getInformation(data);     
+           getInformation(data);     
         }
    })
 }
@@ -180,5 +180,6 @@ $(document).ready(function(){
     if(getCookie("username")==null){
         turn_to_login();
     }
+    //alert("114514");
     fetchShoppingCart();
 })

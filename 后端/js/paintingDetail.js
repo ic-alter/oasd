@@ -100,7 +100,7 @@ function add_to_shoppingCart(){
         turn_to_login();
     } else{
         $.ajax({
-            url: "http://localhost:63342/PHP/add_to_shoppingCart.php",  
+            url: "../PHP/add_to_shoppingCart.php",  
             type: "POST",
             data:{
                 "PaintingID":getQueryVariable("id"),
@@ -128,7 +128,7 @@ $(document).ready(function(){
         //alert(getQueryVariable("id"));
         let id = getQueryVariable("id");
 		$.ajax({
-			 url: "http://localhost:63342/PHP/painting_detail.php",  
+			 url: "../PHP/painting_detail.php",  
 			 type: "GET",
 			 data:{
 				 "id":id,

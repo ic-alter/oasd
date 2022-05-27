@@ -54,7 +54,7 @@ function getInformation(data){
 
 function ajaxFetchData(){
     $.ajax({
-        url: "http://localhost:63342/PHP/search.php",  
+        url: "../PHP/search.php",  
         type: "GET",
         data:{
             "search_text":document.getElementById("search_text").value,
@@ -86,6 +86,31 @@ function search(){
     page = 1;
     document.getElementById("now_page").innerHTML = 1;
     ajaxFetchData();
+}
+
+function search_title(){
+    document.getElementById("FirstName").value="";
+    document.getElementById("LastName").value="";
+    search();
+}
+
+function search_artist(){
+    document.getElementById("search_text").value="";
+    search();
+}
+
+function change_page(va){
+    let reg = /^[1-9][0-9]{0,}$/;
+    if(reg.test(va)&&va<=total_page){
+        page = va;
+        ajaxFetchData();
+        document.getElementById("now_page").innerHTML = page;
+        page_error.innerHTML = "";
+    }else{
+        let page_error = document.getElementById("page_error");
+        page_error.style.color = "red";
+        page_error.innerHTML = "*&nbsp;请填写小于最大页数的正整数";
+    }
 }
 
 function change_page(va){

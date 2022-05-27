@@ -57,7 +57,7 @@ function check_if_update_and_fetch(){
         //alert("is_update = "+is_update+" ,PaintingID="+PaintingID);
         delCookie("update");
         $.ajax({
-            url: "http://localhost:63342/PHP/painting_detail.php",  
+            url: "../PHP/painting_detail.php",  
             type: "GET",
             data:{
                 "id":PaintingID,
@@ -248,7 +248,7 @@ $(document).ready(function(){
 	$("#upload_submit_button").click(function(){
 		if(checkAll()){
 		$.ajax({
-			 url: "http://localhost:63342/PHP/upload_painting.php",  
+			 url: "../PHP/upload_painting.php",  
 			 type: "POST",
 			 data:{
                  "type":PaintingID,
@@ -277,16 +277,16 @@ $(document).ready(function(){
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				//alert(data=="上传艺术品成功！");
+                alert(data.msg);
 				if(data.msg=="艺术品上传成功"){
                     let path = "../painting_imgs/"+data.fileName+getImgName(document.getElementById("true_upload_img"));
                     let f = document.getElementById('true_upload_img').files[0];
                     formData = new FormData();
                     formData.append("img",f);
                     formData.append("path",path);
-                    alert(data.msg);
                     PaintingID = data.PaintingID;
                     $.ajax({
-                        url:"http://localhost:63342/PHP/upload_painting_img.php",
+                        url:"../PHP/upload_painting_img.php",
                         type:'POST',
                         async: false,
                         data: formData,
@@ -303,10 +303,8 @@ $(document).ready(function(){
                     });
                     jump_to_detail(PaintingID);
 				} else if(data.msg == "修改艺术品信息成功"){
-                    alert(data.msg);
                     jump_to_detail(PaintingID);
                 } else{
-                    alert('emmm  好像断网了呢(´д｀)……');
                 }
 			 }
 		});

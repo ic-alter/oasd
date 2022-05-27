@@ -11,7 +11,7 @@ function turn_to_login(){
 
 function fetchUser(){
     $.ajax({
-        url: "http://localhost:63342/PHP/get_user.php",  
+        url: "../PHP/get_user.php",  
         type: "POST",
         data:{
             "username":getCookie("username")
@@ -39,7 +39,7 @@ function add_money(){
     let reg = /^[1-9]+\d*(\.\d{1,4})?$|^0\.\d{1,4}$/;
     if(reg.test(money_to_add)&&money_to_add>0){
         $.ajax({
-            url: "http://localhost:63342/PHP/add_money.php",  
+            url: "../PHP/add_money.php",  
             type: "POST",
             data:{
                 "username":getCookie("username"),
@@ -85,7 +85,7 @@ function want_to_delete(id){
     var flag = confirm("确认要删除吗?删掉可就再也不能恢复了(╯︵╰)");
     if(flag){
         $.ajax({
-            url: "http://localhost:63342/PHP/delete_painting.php",  
+            url: "../PHP/delete_painting.php",  
             type: "POST",
             data:{
                 "username":getCookie("username"),
@@ -108,7 +108,7 @@ function want_to_delete(id){
 
 function fetchMyUpload(){
     $.ajax({
-        url: "http://localhost:63342/PHP/fetchMyUpload.php",  
+        url: "../PHP/fetchMyUpload.php",  
         type: "POST",
         data:{
             "username":getCookie("username")
@@ -152,7 +152,7 @@ function fetchMyUpload(){
 
 function fetchMyOrder(){
     $.ajax({
-        url: "http://localhost:63342/PHP/fetchMyOrder.php",  
+        url: "../PHP/fetchMyOrder.php",  
         type: "POST",
         data:{
             "username":getCookie("username")
@@ -190,7 +190,7 @@ function fetchMyOrder(){
 
 function fetchMySell(){
     $.ajax({
-        url: "http://localhost:63342/PHP/fetchMySell.php",  
+        url: "../PHP/fetchMySell.php",  
         type: "POST",
         data:{
             "username":getCookie("username")

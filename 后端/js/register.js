@@ -156,7 +156,7 @@ $(document).ready(function(){
 		var email = $("#email").val();
 		var address = $("#address").val();
 		$.ajax({
-			 url: "http://localhost:63342/PHP/register.php",  
+			 url: "../PHP/register.php",  
 			 type: "POST",
 			 data:{
 				 "username":username,

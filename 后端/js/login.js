@@ -85,7 +85,7 @@ $(document).ready(function(){
 		var username = $("#username").val();
 		var password = $("#password").val();
 		$.ajax({
-			 url: "http://localhost:63342/PHP/login.php",  
+			 url: "../PHP/login.php",  
 			 type: "POST",
 			 data:{
 				 "username":$("#username").val(),
