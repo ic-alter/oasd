@@ -54,7 +54,7 @@ function make_order(){
             dataType: "json",
             //async: false,
             error: function(){  
-                alert('emmm  好像断网了呢(´д｀)……'); 
+                alert('111emmm  好像断网了呢(´д｀)……'); 
             },  
             success: function(data,status){//如果调用php成功 
                 var inf = "总价: "+ total_cost +"万美元\n账户余额: "+data.money+"万美元\n地址: "+data.address+"\n电话: "+data.phone+"\n";
@@ -68,10 +68,10 @@ function make_order(){
                         "username":getCookie("username"),
                         "time":jsDateFormatter(new Date())
                        },
-                    dataType: "json",
+                    //dataType: "json",
                     //async: false,
                     error: function(){  
-                        alert('emmm  好像断网了呢(´д｀)……');  
+                        alert('222emmm  好像断网了呢(´д｀)……');  
                         //alert(data);
                     },  
                     success: function(data,status){//如果调用php成功 
