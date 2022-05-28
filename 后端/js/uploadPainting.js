@@ -60,7 +60,7 @@ function check_if_update_and_fetch(){
             url: "../PHP/painting_detail.php",  
             type: "GET",
             data:{
-                "id":PaintingID,
+                "PaintingID":PaintingID,
                 "source":"uploadPainting"
                },
             dataType: "json",

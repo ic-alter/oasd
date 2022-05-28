@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>搜索</title>
+        <title>我的足迹</title>
         <link href='../css/search.css'  rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="icon" href="../imgs/img_hero04.jpg" sizes="24x24">
@@ -11,7 +11,7 @@
     </head>
     <body class="search">
         <script src="../jQuery/jquery-3.6.0.js"></script>
-        <script src="../js/search.js"></script>
+        <script src="../js/myfoot.js"></script>
         <script src="../js/index.js"></script>
 
     <div class="top">
@@ -47,31 +47,8 @@
         </center>
     </div>
 
-        
-
-        <div class="sousuokuang"> 
-            <div>
-                <input class="search_text" id="search_text" type="text" name="search_text" placeholder="模糊搜索作品名">
-                <input class="search_submit" type="submit" value="按作品名搜索" onclick="search_title()">
-            </div>
-        </div>
-        <div class="sousuokuang">
-            <div>
-                <input class="search_text artist" type="text" id="artist" name="artist" placeholder="模糊搜索作者名">
-                <input class="search_submit" type="submit" value="按作者搜索" onclick="search_artist()">
-            </div>
-        </div>
-
-        <div class="sousuokuang">
-            <select class="search_text" name="search_text" id="OrderMethod">
-                <option selected="selected" value="1">按作品名排序</option>
-                <option value="2">按访问量排序</option>
-                <option value="3">按价格排序</option>
-            </select>
-            <input class="search_submit" type="submit" value="确认排序方式" onclick="search()">
-        </div>
         <div id="search_result" class="search_result">
-            <p>暂未搜索到相关艺术品</p>
+            <p>暂时还没有足迹(｡･ω･｡)</p>
             <!--<div>
                 <a href="#"><table class="inf_table">
                     <tr>
@@ -90,36 +67,11 @@
                         <td>简介</td><td>简介</td>
                     </tr>
                     <tr>
-                        <td>访问量</td><td>1919810</td>
+                        <td>上次访问时间</td><td>1919810</td>
                     </tr>
                 </table></a>
             </div>-->
             
-        </div>
-        <div class="page">
-            <div>
-            <table id="select_page">
-                <tr>
-                        <button class="page_button" name="page" value="上一页" onclick="pre_page()" >上一页</button> 
-                </tr>
-                <span id="select_page_buttons">
-                <!--<tr>
-                    
-                        <button class="page_button" name="page" value="1" onclick="change_page(this.value)" >1</button>
-                   
-                </tr>-->
-                </span>
-                <tr>
-                    
-                        <button class="page_button" name="page" value="下一页" onclick="next_page()" >下一页</button>
-                    
-                </tr>
-            </table>
-            </div>
-            <div class="select_page">
-                <p>第<span id="now_page">1</span>页,共<span id="total_page">1</span>页,跳转到<input type="text" id="now_page" name="jump_page" value="" onblur="change_page(this.value)">页</p>
-                <span id="page_error">&nbsp;</span>
-            </div>
         </div>
     </body>
 </html>

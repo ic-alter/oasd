@@ -131,19 +131,22 @@ $(document).ready(function(){
 			 url: "../PHP/painting_detail.php",  
 			 type: "GET",
 			 data:{
-				 "id":id,
+				 "PaintingID":id,
                  "source":"paintingDetail",
+                 "username":getCookie('username'),
+                 "visitTime":jsDateFormatter(new Date())
 				},
-			 dataType: "json",
+			 //dataType: "json",
 			 //async: false,
-			 error: function(){  
+			 error: function(data){  
 				 alert('emmm  好像断网了呢(´д｀)……');  
-				 alert(data);
+				 //console.log(data);
 			 },  
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				//alert(data.title);
                 getInformation(data);
+                //console.log(data);
 				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
 			 }
 		

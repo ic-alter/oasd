@@ -1,10 +1,11 @@
 <?php
 header("Access-Control-Allow-Origin:*");
-$id = $_GET["id"];
+$id = $_GET["PaintingID"];
 
 $conn = null;
 include 'base.php';
 require 'pojo/Painting.inc';
+include_once "pojo/MyFoot.inc";
 
 /*$sql="select * from paintings where PaintingID='$id';";
 $res=mysqli_query($conn,$sql);
@@ -40,6 +41,10 @@ if (!$row){
     $painting = new Painting($conn,$row);
     if ($_GET['source']=="paintingDetail"){
         $painting->heat_add1($conn);
+    }
+    if ($id!="暂无数据"&&$_GET['username']!=null){
+        $myFoot = new MyFoot($conn,$_GET);
+        $myFoot->save_or_update($conn);
     }
     header("Content-type: application/json; charset=utf-8");
     echo json_encode($painting,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
