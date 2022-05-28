@@ -61,7 +61,8 @@ function check_if_update_and_fetch(){
             type: "GET",
             data:{
                 "PaintingID":PaintingID,
-                "source":"uploadPainting"
+                "source":"uploadPainting",
+                "username":null
                },
             dataType: "json",
             //async: false,
