@@ -58,8 +58,7 @@ function ajaxFetchData(){
         type: "GET",
         data:{
             "search_text":document.getElementById("search_text").value,
-            "FirstName":document.getElementById("FirstName").value,
-            "LastName":document.getElementById("LastName").value,
+            "artist":document.getElementById("artist").value,
             "OrderMethod":document.getElementById("OrderMethod").value,
             "page":page
            },
@@ -89,8 +88,7 @@ function search(){
 }
 
 function search_title(){
-    document.getElementById("FirstName").value="";
-    document.getElementById("LastName").value="";
+    document.getElementById("artist").value="";
     search();
 }
 

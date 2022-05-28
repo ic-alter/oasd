@@ -3,19 +3,17 @@ header("Access-Control-Allow-Origin:*");
 
 $conn = null;
 include 'base.php';
-$DATA_PER_PAGE = 6;
+$DATA_PER_PAGE = 9;
 
 if ($_GET['search_text']!=""){
     $search_text =  $_GET['search_text'];
 } else{
     $search_text = false;
 }
-if ($_GET['FirstName']!=""&&$_GET['LastName']!=""){
-    $FirstName =  $_GET['FirstName'];
-    $LastName = $_GET["LastName"];
+if ($_GET['artist']!=""){
+    $artist = $_GET["artist"];
 } else{
-    $FirstName = false;
-    $LastName = false;
+    $artist = false;
 }
 
 if ($_GET['page']!=""){
@@ -35,12 +33,14 @@ $start = ($page-1)*$DATA_PER_PAGE;
 
 if ($search_text){
     $p_sql_where = " WHERE Title LIKE'%$search_text%'";
-} else if ($FirstName&&$LastName){
-    $sql_artist = "select * from artists WHERE FirstName='$FirstName' and LastName='$LastName';";
+} else if ($artist){
+    $sql_artist = "SELECT *,concat_ws(' ',FirstName,LastName) AS whole_name FROM artists HAVING whole_name LIKE '%$artist%';";
     $res_artist = mysqli_query($conn,$sql_artist);
-    $row_artist = mysqli_fetch_assoc($res_artist);
-    $ArtistID1 = $row_artist['ArtistID'];
-    $p_sql_where = " WHERE ArtistID='$ArtistID1'";
+    $p_sql_where = " WHERE ArtistID=0";
+    while($row_artist = mysqli_fetch_assoc($res_artist)) {
+        $ArtistID1 = $row_artist['ArtistID'];
+        $p_sql_where .= " or ArtistID='$ArtistID1'";
+    }
 } else{
     $p_sql_where = " ";
 }

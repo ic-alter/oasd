@@ -173,7 +173,7 @@ function checkNum(t){
     //let reg = /^\d+(\.\d{1,4})?$/;
     let reg = /^[1-9]+\d*(\.\d{1,4})?$|^0\.\d{1,4}$/;
 	let va = t.value;
-	if(reg.test(va)&&va>0&&reg<1000000) {
+	if(reg.test(va)&&va>0&&va<1000000.0) {
 		checkResult = true;
 		return mean(t, checkResult)
 	} else {
