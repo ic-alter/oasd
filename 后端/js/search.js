@@ -119,8 +119,8 @@ function change_page(va){
         document.getElementById("now_page").innerHTML = page;
     }else{
         let page_error = document.getElementById("page_error");
-        page_error.style.color = red;
-        page_error.innerHTML = "*&nbsp;请填写小于最大页数的正整数";
+        page_error.style.color = "red";
+        page_error.innerHTML = "*&nbsp;请填写小于最大页数的正整数<br>";
     }
 }
 
