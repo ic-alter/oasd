@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50650
 File Encoding         : 65001
 
-Date: 2022-05-28 14:48:25
+Date: 2022-05-28 15:22:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `artists` (
   PRIMARY KEY (`ArtistID`),
   KEY `ArtistID` (`ArtistID`),
   KEY `LastName` (`LastName`)
-) ENGINE=InnoDB AUTO_INCREMENT=157 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of artists
@@ -129,6 +129,7 @@ INSERT INTO `artists` VALUES ('153', '12345', '12345', null, 'M', '0', '0', null
 INSERT INTO `artists` VALUES ('154', '1234', '123', null, 'M', '0', '0', null, null);
 INSERT INTO `artists` VALUES ('155', 'Zhou', 'ZiBo', null, 'M', '0', '0', null, null);
 INSERT INTO `artists` VALUES ('156', '12376', '122', null, 'M', '0', '0', null, null);
+INSERT INTO `artists` VALUES ('157', 'name', 'eman', null, 'M', '0', '0', null, null);
 
 -- ----------------------------
 -- Table structure for eras
@@ -227,7 +228,7 @@ CREATE TABLE `genres` (
   PRIMARY KEY (`GenreID`),
   UNIQUE KEY `GenreName` (`GenreName`),
   KEY `GenreID` (`GenreID`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of genres
@@ -260,6 +261,8 @@ INSERT INTO `genres` VALUES ('97', '123', null, null, null);
 INSERT INTO `genres` VALUES ('98', '132', null, null, null);
 INSERT INTO `genres` VALUES ('99', '法师', null, null, null);
 INSERT INTO `genres` VALUES ('100', '1233', null, null, null);
+INSERT INTO `genres` VALUES ('101', 'Post-Impressionismll', null, null, null);
+INSERT INTO `genres` VALUES ('102', 'gorou', null, null, null);
 
 -- ----------------------------
 -- Table structure for myfoot
@@ -271,7 +274,7 @@ CREATE TABLE `myfoot` (
   `username` varchar(255) DEFAULT NULL,
   `visitTime` datetime DEFAULT NULL,
   PRIMARY KEY (`FootID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of myfoot
@@ -280,10 +283,18 @@ INSERT INTO `myfoot` VALUES ('1', '11', 'icalter', '2022-05-28 14:38:16');
 INSERT INTO `myfoot` VALUES ('2', '66', 'icalter', '2022-05-28 14:40:58');
 INSERT INTO `myfoot` VALUES ('3', '39', 'icalter', '2022-05-28 14:40:47');
 INSERT INTO `myfoot` VALUES ('4', '70', 'icalter', '2022-05-28 14:41:11');
-INSERT INTO `myfoot` VALUES ('5', '79', 'icalter', '2022-05-28 14:41:17');
+INSERT INTO `myfoot` VALUES ('5', '79', 'icalter', '2022-05-28 14:56:37');
 INSERT INTO `myfoot` VALUES ('6', '67', 'icalter', '2022-05-28 14:41:38');
 INSERT INTO `myfoot` VALUES ('7', '64', 'icalter', '2022-05-28 14:41:47');
 INSERT INTO `myfoot` VALUES ('8', '7', 'mizuki', '2022-05-28 14:46:54');
+INSERT INTO `myfoot` VALUES ('9', '643', 'icalter', '2022-05-28 14:48:43');
+INSERT INTO `myfoot` VALUES ('10', '7', 'icalter', '2022-05-28 14:55:20');
+INSERT INTO `myfoot` VALUES ('11', '79', 'mizuki', '2022-05-28 14:56:23');
+INSERT INTO `myfoot` VALUES ('12', '47', 'icalter', '2022-05-28 14:57:12');
+INSERT INTO `myfoot` VALUES ('13', '47', 'mizuki', '2022-05-28 14:57:46');
+INSERT INTO `myfoot` VALUES ('14', '644', '写文档', '2022-05-28 15:15:06');
+INSERT INTO `myfoot` VALUES ('15', '645', '写文档', '2022-05-28 15:18:08');
+INSERT INTO `myfoot` VALUES ('16', '7', '写文档', '2022-05-28 15:21:18');
 
 -- ----------------------------
 -- Table structure for orders
@@ -295,7 +306,7 @@ CREATE TABLE `orders` (
   `username` varchar(255) DEFAULT NULL,
   `OrderTime` datetime DEFAULT NULL,
   PRIMARY KEY (`OrderID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orders
@@ -308,6 +319,10 @@ INSERT INTO `orders` VALUES ('9', '612', 'icalter', '2022-05-28 09:44:45');
 INSERT INTO `orders` VALUES ('10', '70', 'icalter', '2022-05-28 09:44:45');
 INSERT INTO `orders` VALUES ('11', '57', 'icalter', '2022-05-28 13:09:28');
 INSERT INTO `orders` VALUES ('12', '644', 'icalter', '2022-05-28 13:11:08');
+INSERT INTO `orders` VALUES ('13', '7', 'icalter', '2022-05-28 14:55:30');
+INSERT INTO `orders` VALUES ('14', '79', 'icalter', '2022-05-28 14:56:45');
+INSERT INTO `orders` VALUES ('15', '47', 'mizuki', '2022-05-28 14:57:59');
+INSERT INTO `orders` VALUES ('16', '645', '写文档', '2022-05-28 15:20:13');
 
 -- ----------------------------
 -- Table structure for paintinggenres
@@ -321,13 +336,13 @@ CREATE TABLE `paintinggenres` (
   KEY `GenreID` (`GenreID`),
   KEY `PaintingID` (`PaintingID`),
   KEY `PaintingGenreID` (`PaintingGenreID`)
-) ENGINE=InnoDB AUTO_INCREMENT=730 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=731 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of paintinggenres
 -- ----------------------------
 INSERT INTO `paintinggenres` VALUES ('7', '5', '36');
-INSERT INTO `paintinggenres` VALUES ('9', '7', '36');
+INSERT INTO `paintinggenres` VALUES ('9', '7', '101');
 INSERT INTO `paintinggenres` VALUES ('10', '8', '1');
 INSERT INTO `paintinggenres` VALUES ('13', '11', '1');
 INSERT INTO `paintinggenres` VALUES ('14', '12', '1');
@@ -379,6 +394,7 @@ INSERT INTO `paintinggenres` VALUES ('724', '639', '97');
 INSERT INTO `paintinggenres` VALUES ('726', '641', '97');
 INSERT INTO `paintinggenres` VALUES ('728', '643', '97');
 INSERT INTO `paintinggenres` VALUES ('729', '644', '97');
+INSERT INTO `paintinggenres` VALUES ('730', '645', '102');
 
 -- ----------------------------
 -- Table structure for paintings
@@ -414,13 +430,13 @@ CREATE TABLE `paintings` (
   KEY `ShapeID` (`ShapeID`),
   KEY `Title` (`Title`),
   KEY `PaintingID` (`PaintingID`)
-) ENGINE=InnoDB AUTO_INCREMENT=645 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=646 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of paintings
 -- ----------------------------
 INSERT INTO `paintings` VALUES ('5', '1', '20', '001050.jpg', 'Self-portrait (Yo)', '1', 'http://www.moma.org/collection/works/80026?locale=en', '587.1998', 'Estate of Pablo Picasso / Artists Rights Society', null, null, '1901', '54', '32', 'Oil on cardboard on panel', '125.0000', '135.0000', '2022-05-24 19:00:17', '2022-05-26 00:50:01', 'mizuki', '33', '1');
-INSERT INTO `paintings` VALUES ('7', '1', '7', '001080.jpg', 'Family of Saltimbanques', '3', 'http://www.nga.gov/content/ngaweb/Collection/art-object-page.46665.html', '1963.10.190', 'Estate of Pablo Picasso/Artists Rights Society', 'Family of Saltimbanques (La famille de saltimbanques) is a 1905 painting by Pablo Picasso. It is considered the masterpiece of Picasso\'s circus period. The painting depicts six saltimbanques, a kind of itinerant circus performer, in a desolate landscape. The composition groups them together, but they do not seem connected to each other and are not looking at each other.[', '<em>Family of Saltimbanques</em> (La famille de saltimbanques) is a 1905 painting by Pablo Picasso. It is considered the masterpiece of Picasso\'s circus period.', '1905', '213', '230', 'Oil on canvas', '440.0000', '570.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', 'icalter', '46', '0');
+INSERT INTO `paintings` VALUES ('7', '1', '7', '001080.jpg', 'Family of Saltimbanques', '3', 'http://www.nga.gov/content/ngaweb/Collection/art-object-page.46665.html', '1963.10.190', 'Estate of Pablo Picasso/Artists Rights Society', 'painting by Pablo Picasso. ', '<em>Family of Saltimbanques</em> (La famille de saltimbanques) is a 1905 painting by Pablo Picasso. It is considered the masterpiece of Picasso\'s circus period.', '1905', '213', '230', 'Oil on canvas', '440.0000', '570.0000', '2022-05-24 19:00:34', '2022-05-28 14:54:33', 'icalter', '49', '1');
 INSERT INTO `paintings` VALUES ('8', '1', '11', '001090.jpg', 'Portrait of Daniel-Henry Kahnweiler', '1', 'http://www.artic.edu/aic/collections/artwork/111060', null, 'Estate of Pablo Picasso / Artists Rights Society', 'In 1907 Picasso joined an art gallery that had recently been opened in Paris by Daniel-Henry Kahnweiler. Kahnweiler was a German art historian, art collector who became one of the premier French art dealers of the 20th century. He was among the first champions of Pablo Picasso, Georges Braque and the Cubism that they jointly developed. Kahnweiler promoted burgeoning artists such as André Derain, Kees Van Dongen, Fernand Léger, Juan Gris, Maurice de Vlaminck and several others who had come from all over the globe to live and work in Montparnasse at the time.', 'In 1907 Picasso joined an art gallery that had recently been opened in Paris by Daniel-Henry Kahnweiler. Kahnweiler was a German art historian, art collector who became one of the premier French art dealers of the 20th century.', '1910', '101', '73', 'Oil on canvas', '900.0000', '1000.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('11', '1', '13', '001130.jpg', 'Self Portrait With A Palette', '1', 'http://www.philamuseum.org/collections/permanent/50947.html', '1950-1-1', 'Estate of Pablo Picasso / Artists Rights Society', 'This self-portrait casts the twenty-five-year-old painter as a hardy, athletic figure and sets the stage for the legend of Picasso as the artistic champion of the twentieth century. In preparatory drawings the artist included a brush in his right hand, but he removed it in this final version. Its absence attests to the notion that creative genius is not simply manual dexterity but the expression of an inner vision, here symbolized by the artist’s intense, staring eyes.', 'This self-portrait casts the twenty-five-year-old painter as a hardy, athletic figure and sets the stage for the legend of Picasso as the artistic champion of the twentieth century.', '1906', '92', '73', 'Oil on canvas', '500.0000', '800.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '243', '1');
 INSERT INTO `paintings` VALUES ('12', '1', '6', '001150.jpg', 'Portrait of Gertrude Stein', '1', 'http://www.metmuseum.org/art/collection/search/488221', '47.106', 'Estate of Pablo Picasso / Artists Rights Society', 'By 1905 Picasso became a favorite of the American art collectors Leo and Gertrude Stein. Their older brother Michael Stein and his wife Sarah also became collectors of his work. Picasso painted portraits of both Gertrude Stein and her nephew Allan Stein. Gertrude Stein became Picasso\'s principal patron, acquiring his drawings and paintings and exhibiting them in her informal Salon at her home in Paris. At one of her gatherings in 1905, he met Henri Matisse, who was to become a lifelong friend and rival. The Steins introduced him to Claribel Cone and her sister Etta who were American art collectors; they also began to acquire Picasso and Matisse\'s paintings. Eventually Leo Stein moved to Italy, and Michael and Sarah Stein became patrons of Matisse; while Gertrude Stein continued to collect Picasso.', 'By 1905 Picasso became a favorite of the American art collectors Leo and Gertrude Stein. Their older brother Michael Stein and his wife Sarah also became collectors of his work. Picasso painted portraits of both Gertrude Stein and her nephew Allan Stein.', '1907', '100', '81', 'oil on canvas', '620.0000', '800.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '11', '0');
@@ -432,7 +448,7 @@ INSERT INTO `paintings` VALUES ('41', '14', '6', '014040.jpg', 'At the Piano', '
 INSERT INTO `paintings` VALUES ('42', '15', '19', '015050.jpg', 'Glass of Absinthe', '1', 'http://www.musee-orsay.fr/en/collections/works-in-focus/search/commentaire/commentaire_id/dans-un-cafe-167.html', 'RF 1984', '&copy; Home', '<em>L\'Absinthe</em> (English: The Absinthe Drinker or Glass of Absinthe) is a painting by Edgar Degas. Some original title translations are A sketch of a French Café, then Figures at Café, the title was finally changed in 1893 to L’Absinthe (the name the piece is known by today). It is now in the permanent collection of the Musée d\'Orsay in Paris.\r\nPainted in 1875-1876, it depicts two figures, a woman and man, who sit in the center and right of this painting, respectively. The man, wearing a hat, looks right, off the canvas, while the woman, dressed formally and also wearing a hat, stares vacantly downward. A glass filled with the eponymous greenish liquid sits before her. The painting is a representation of the increasing social isolation in Paris during its stage of rapid growth.', '<em>L\'Absinthe</em> (English: The Absinthe Drinker or Glass of Absinthe) is a painting by Edgar Degas. Some original title translations are A sketch of a French Café, then Figures at Café, the title was finally changed in 1893 to L’Absinthe (the name the piece is known by today).', '1877', '92', '68', 'Oil on canvas', '1225.0000', '1300.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '1', '0');
 INSERT INTO `paintings` VALUES ('45', '17', '19', '017020.jpg', 'Women in the Garden', '1', 'http://www.musee-orsay.fr/en/collections/works-in-focus/search/commentaire/commentaire_id/femmes-au-jardin-343.html', 'RF 2773', '&copy; Home', 'Monet’s technique of “en plein air” painting was hard at work on this painting. Because it necessitated that he work from the same point of view as he painted, he dug a trench for the bottom half of the painting to sit in while he painted the top, due to its large size (it measures 100 by 81 inches). His model for the women of the painting was Camille Doncieux, who would later become his wife, bearing him two sons. To finish the dresses in the most fashionable style, Monet used magazine illustrations to render the clothing.', 'Monet’s technique of “en plein air” painting was hard at work on this painting. Because it necessitated that he work from the same point of view as he painted, he dug a trench for the bottom half of the painting to sit in while he painted the top, due to its large size.', '1866', '205', '255', 'Oil on canvas', '850.0000', '1050.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('46', '17', '11', '017030.jpg', 'Stacks of Wheat (End of Summer)', '2', 'http://www.artic.edu/aic/collections/artwork/64818', null, 'Rights-Managed (RM)', 'The monumental stacks that Claude Monet depicted in his series Stacks of Wheat rose fifteen to twenty feet and stood just outside the artist’s farmhouse at Giverny. Through 1890 and 1891, he worked on this series both in the field, painting simultaneously at several easels, and in the studio, refining pictorial harmonies. In May 1891, Monet hung fifteen of these canvases next to each other in one small room in the Galerie Durand-Ruel in Paris. An unprecedented critical and financial success, the exhibition marked a breakthrough in Monet’s career, as well as in the history of French art.', 'The monumental stacks that Claude Monet depicted in his series Stacks of Wheat rose fifteen to twenty feet and stood just outside the artist’s farmhouse at Giverny.', '1891', '60', '100', 'Oil on canvas', '1200.0000', '1500.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
-INSERT INTO `paintings` VALUES ('47', '17', '6', '017070.jpg', 'The Houses of Parliament (Effect of Fog)', '3', 'http://www.metmuseum.org/art/collection/search/437128', '56.135.6', 'Open Access for Scholarly Content', 'In the fall of 1899 and the early months of 1900 and of 1901, Monet executed a series of views of the Thames River in London. From his room at the Savoy Hotel, he painted Waterloo Bridge to the east, and Charing Cross Bridge to the west; beginning in February 1900, he set up his easel on a terrace at Saint Thomas\'s Hospital across the river, reserving time in the late afternoon to depict the Houses of Parliament.\r\n\r\nWhile in London, Monet produced nearly a hundred canvases, reportedly moving from one to another as the light changed. He continued to work on these paintings in his studio at Giverny. In May 1904, thirty-seven were exhibited at the Galerie Durand-Ruel in Paris, including this view of the Houses of Parliament cloaked in dense fog.', 'In the fall of 1899 and the early months of 1900 and of 1901, Monet executed a series of views of the Thames River in London. From his room at the Savoy Hotel, he painted Waterloo Bridge to the east, and Charing Cross Bridge to the west; beginning in February 1900, he set up his easel on a terrace at Saint Thomas\'s Hospital across the river, reserving time in the late afternoon to depict the Houses of Parliament.', '1903', '81', '92', 'Oil on canvas', '750.0000', '900.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
+INSERT INTO `paintings` VALUES ('47', '17', '6', '017070.jpg', 'The Houses of Parliament (Effect of Fog)', '3', 'http://www.metmuseum.org/art/collection/search/437128', '56.135.6', 'Open Access for Scholarly Content', 'In the fall of 1899 and the early months of 1900 and of 1901, Monet executed a series of views of the Thames River in London. From his room at the Savoy Hotel, he painted Waterloo Bridge to the east, and Charing Cross Bridge to the west; beginning in February 1900, he set up his easel on a terrace at Saint Thomas\'s Hospital across the river, reserving time in the late afternoon to depict the Houses of Parliament.\r\n\r\nWhile in London, Monet produced nearly a hundred canvases, reportedly moving from one to another as the light changed. He continued to work on these paintings in his studio at Giverny. In May 1904, thirty-seven were exhibited at the Galerie Durand-Ruel in Paris, including this view of the Houses of Parliament cloaked in dense fog.', 'In the fall of 1899 and the early months of 1900 and of 1901, Monet executed a series of views of the Thames River in London. From his room at the Savoy Hotel, he painted Waterloo Bridge to the east, and Charing Cross Bridge to the west; beginning in February 1900, he set up his easel on a terrace at Saint Thomas\'s Hospital across the river, reserving time in the late afternoon to depict the Houses of Parliament.', '1903', '81', '92', 'Oil on canvas', '750.0000', '900.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '2', '1');
 INSERT INTO `paintings` VALUES ('48', '17', '6', '017060.jpg', 'Water Lilies', '4', 'http://www.metmuseum.org/art/collection/search/438008', '1998.325.2', 'Open Access for Scholarly Content', 'Monet left much of his late work unfinished and released few paintings for sale, reporting that he was not yet satisfied and was still working on them \"with passion.\" This canvas is one of four water-lily pictures that, quite exceptionally, he did complete, sign, and sell in 1919.', 'Monet left much of his late work unfinished and released few paintings for sale, reporting that he was not yet satisfied and was still working on them \"with passion.\" This canvas is one of four water-lily pictures that, quite exceptionally, he did complete, sign, and sell in 1919.', '1919', '101', '200', 'Oil on canvas', '750.0000', '900.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('49', '17', '19', '017050.jpg', 'Rouen Cathedral, Full Sunlight', '1', 'http://www.musee-orsay.fr/en/collections/index-of-works/notice.html?no_cache=1&nnumid=001285', 'RF 2002', '&copy; Home', null, null, '1894', '107', '73', 'Oil on canvas', '1300.0000', '4125.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('50', '17', '7', '017040.jpg', 'Woman with a Parasol - Madame Monet and Her Son', '1', 'http://www.nga.gov/content/ngaweb/Collection/art-object-page.61379.html', '1983.1.29', 'Open Access', 'Woman with a Parasol was painted outdoors, probably in a single session of several hours\' duration. The artist intended the work to convey the feeling of a casual family outing rather than a formal portrait, and used pose and placement to suggest that his wife and son interrupted their stroll while he captured their likenesses. The brevity of the moment portrayed here is conveyed by a repertory of animated brushstrokes of vibrant color, hallmarks of the style Monet was instrumental in forming. Bright sunlight shines from behind Camille to whiten the top of her parasol and the flowing cloth at her back, while colored reflections from the wildflowers below touch her front with yellow.', 'Woman with a Parasol was painted outdoors, probably in a single session of several hours\' duration.', '1875', '100', '81', 'Oil on canvas', '500.0000', '940.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '2', '0');
@@ -456,7 +472,7 @@ INSERT INTO `paintings` VALUES ('70', '21', '6', '021070.jpg', 'Card Players', '
 INSERT INTO `paintings` VALUES ('71', '21', '20', '021060.jpg', 'Still Life With Apples', '2', 'http://www.moma.org/collection/works/78486?locale=en', '22.1934', '&copy; Art Resource', 'Throughout his life, the French painter Paul Cézanne returned again and again to the still life. Encompassing small—scale domestic scenes rather than grand public ones, still life was considered the lowliest of genres by the French Royal Academy, the official arbiter of great art in the nineteenth century. Yet in <em>Still Life with Apples</em>, Cézanne proved that this modest genre could be a vehicle for thinking through the Impressionist project of faithfully representing the appearance of light and space. \"Painting from nature is not copying the object,\" he wrote, \"it is realizing one\'s sensations.\"', 'Throughout his life, the French painter Paul Cézanne returned again and again to the still life. In <em>Still Life with Apples</em>, Cézanne proved that this modest genre could be a vehicle for thinking through the Impressionist project of faithfully representing the appearance of light and space.', '1890', '69', '93', 'Oil on canvas', '1225.0000', '1300.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('77', '24', '28', '024010.jpg', 'Sick Child', '3', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/The+Sick+Child%2C+1885%E2%88%9286.b7C_wljS4f.ips', 'NG.M.00839', '&copy; National Museum of Norway', 'Munch had a troubled familial past. In addition to his overbearing pietist father, his mother died of tuberculosis when he was a small child, and his sister died nine years later of the same disease. This painting is an image of Munch’s older and favorite sister Sophie lying in bed, dying of tuberculosis when she was 15 years old. Munch created many reproductions of this painting, including one that was held in Dresden, Germany. In the 1930’s and 40’s Nazi’s deemed Munch’s art as “degenerate art” and removed all of them from Germany to be sold at auction. This piece was bought and later donated to the Tate Gallery in London, where it remains today.', 'This painting is an image of Munch’s older and favorite sister Sophie lying in bed, dying of tuberculosis when she was 15 years old. Munch created many reproductions of this painting, including one that was held in Dresden, Germany.', '1885', '120', '118', 'Oil on canvas', '375.0000', '400.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('78', '24', '28', '024020.jpg', 'Death in the sickroom', '3', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/Death+in+the+Sick-Room%2C+prob.+1893.b7C_wljU3c.ips', 'NG.M.00940', '&copy; National Museum of Norway', 'The picture shows what we can assume to be the artist’s family grouped around his sister Sophie, who died in 1877. She is sitting in a chair with her back to us. To the right stands an aunt, Karen Bjølstad, who moved in with the family to take care of the children and the household after the mother died of tuberculosis in 1868. In the background stands the father, the doctor Christian Munch, with his hands clasped as if in prayer. Near the centre of the picture is a male figure, probably Edvard, in quarter-face. Sister Laura is sitting in the foreground with her hands in her lap, while the third sister, Inger, stands staring straight at us. The male figure to the left is generally identified as Edvard’s younger brother Andreas. In Death in the SickRoom there is no physical contact between the people, except for the hand that aunt Karen has laid on the back of the chair in which the invalid sits.', 'The picture shows what we can assume to be the artist’s family grouped around his sister Sophie, who died in 1877. She is sitting in a chair with her back to us.', '1892', '134', '160', 'Tempura and Crayon on canvas', '250.0000', '275.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
-INSERT INTO `paintings` VALUES ('79', '24', '28', '024030.jpg', 'Cry (The Scream)', '1', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/The+Scream%2C+1893.b7C_wljU1a.ips', 'NG.M.00939', '&copy; National Museum of Norway', '<em>Scream</em> is the title of expressionist paintings and prints in a series by Norwegian artist Edvard Munch, showing an agonized figure against a blood red sky. The landscape in the background is the Oslofjord, viewed from the hill of Ekeberg, in Oslo (then Kristiania), Norway.\r\nEdvard Munch created several versions of Scream in various media. The Munch Museum holds one of two painted versions (1910, see gallery) and one pastel. The National Gallery of Norway holds the other painted version (1893, shown to right). A fourth version, in pastel, is owned by Norwegian businessman Petter Olsen. Munch also created a lithograph of the image in 1895.', '<em>Scream</em> is the title of expressionist paintings and prints in a series by Norwegian artist Edvard Munch, showing an agonized figure against a blood red sky. The landscape in the background is the Oslofjord, viewed from the hill of Ekeberg, in Oslo (then Kristiania), Norway.', '1893', '91', '74', 'Oil, tempera and pastel on cardboard', '175.0000', '225.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '1', '0');
+INSERT INTO `paintings` VALUES ('79', '24', '28', '024030.jpg', 'Cry (The Scream)', '1', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/The+Scream%2C+1893.b7C_wljU1a.ips', 'NG.M.00939', '&copy; National Museum of Norway', '<em>Scream</em> is the title of expressionist paintings and prints in a series by Norwegian artist Edvard Munch, showing an agonized figure against a blood red sky. The landscape in the background is the Oslofjord, viewed from the hill of Ekeberg, in Oslo (then Kristiania), Norway.\r\nEdvard Munch created several versions of Scream in various media. The Munch Museum holds one of two painted versions (1910, see gallery) and one pastel. The National Gallery of Norway holds the other painted version (1893, shown to right). A fourth version, in pastel, is owned by Norwegian businessman Petter Olsen. Munch also created a lithograph of the image in 1895.', '<em>Scream</em> is the title of expressionist paintings and prints in a series by Norwegian artist Edvard Munch, showing an agonized figure against a blood red sky. The landscape in the background is the Oslofjord, viewed from the hill of Ekeberg, in Oslo (then Kristiania), Norway.', '1893', '91', '74', 'Oil, tempera and pastel on cardboard', '175.0000', '225.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '3', '1');
 INSERT INTO `paintings` VALUES ('80', '24', '28', '024040.jpg', 'Puberty', '1', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/Puberty%2C+1894%E2%80%9395.b7C_wljWWK.ips', 'NG.M.00807', '&copy; National Museum of Norway', '<em>Puberty</em> is a painting created by Edvard Munch. Munch is an artist native to Norway and is widely known for his role in expressionistic art. Puberty has also been done as a lithograph and an etching by Munch.\r\nUpon observation of Puberty one of the strongest points in the piece to most is first the adolescent female who is placed mid-center of the painting. The second almost \'haunting\' point in this painting is the shadow the female is meant to be casting. It has been speculated, because of the current sexual mind Munch was in during the time in which he painted this, that the shadow may be a hovering male genital. The thought of male genitalia to a young woman during this time of her own rapidly changing body creates a stench of tension within the piece. Another thought on the shadow is that it suggests the symbolic meaning of death. Both of these speculations on the shadow in this piece reflect well upon what Munch is known for symbolically portraying in his artwork. The female in Puberty had originally been thought to have been a model of Munch\'s while he was in Berlin. The strong detail used in the collar bones of her body suggests that he very well might have used a model. Either way this young lady is trapped in a space that alludes to much controversy within her mind and surroundings.', '<em>Puberty</em> is a painting created by Edvard Munch. Munch is an artist native to Norway and is widely known for his role in expressionistic art. Puberty has also been done as a lithograph and an etching by Munch.', '1894', '152', '110', 'Oil on canvas', '125.0000', '165.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '0', '0');
 INSERT INTO `paintings` VALUES ('81', '24', '28', '024050.jpg', 'Madonna', '1', 'http://www.nasjonalmuseet.no/en/collections_and_research/our_collections/edvard_munch_in_the_national_museum/Madonna%2C+1894%E2%80%9395.b7C_wljU5e.ips', 'NG.M.00841', '&copy; National Museum of Norway', '<em>Madonna</em> is a painting by the Norwegian expressionist Edvard Munch. Munch painted five versions of the Madonna between 1894 and 1895, using oils on canvas. Although it is a highly unusual representation, nevertheless, this painting is of Mary, the mother of Jesus. True to the Norwegian cultural beliefs and way of life, the painting is a strong dose of conceivable realism.', '<em>Madonna</em> is a painting by the Norwegian expressionist Edvard Munch. Munch painted five versions of the Madonna between 1894 and 1895, using oils on canvas. Although it is a highly unusual representation, nevertheless, this painting is of Mary, the mother of Jesus.', '1895', '91', '70', 'Oil on canvas', '190.0000', '230.0000', '2022-05-24 19:00:34', '2022-05-26 00:50:01', null, '3', '0');
 INSERT INTO `paintings` VALUES ('600', '142', null, 'temp.png', '万叶', null, null, null, 'Public domain', '万叶好可爱嘿嘿嘿万叶还可爱嘿嘿嘿', null, '-368', '12', '34', 'Oil on canvas', '114514.1919', '900.0000', '2022-05-24 23:57:29', '2022-05-26 00:50:01', 'icalter', '2', '0');
@@ -467,8 +483,9 @@ INSERT INTO `paintings` VALUES ('611', '150', null, '24611.JPG', '魈 ', null, n
 INSERT INTO `paintings` VALUES ('612', '152', null, '24612.JPG', 'Kate and John', null, null, null, 'Public domain', 'kagefunshinojizu', null, '8956', '5', '6', 'Oil on canvas', '1234.0000', '900.0000', '2022-05-26 18:43:04', '2022-05-26 18:43:04', 'icalter', '4', '1');
 INSERT INTO `paintings` VALUES ('639', '151', null, '24639.JPG', '血叶', null, null, null, 'Public domain', '123', null, '123', '123', '123', 'Oil on canvas', '123.0000', '900.0000', '2022-05-27 21:17:19', '2022-05-27 21:17:19', 'icalter', '8904', '0');
 INSERT INTO `paintings` VALUES ('641', '151', null, '24641.JPG', '123', null, null, null, 'Public domain', '123', null, '123', '123', '123', 'Oil on canvas', '123.0000', '900.0000', '2022-05-27 21:57:38', '2022-05-27 21:57:38', 'Skybase', '6', '1');
-INSERT INTO `paintings` VALUES ('643', '151', null, '24643.JPG', 'aaaaa', null, null, null, 'Public domain', '123456543223455432345676543', null, '123', '123', '123', 'Oil on canvas', '23.0000', '900.0000', '2022-05-28 11:47:28', '2022-05-28 11:47:28', 'icalter', '1', '0');
-INSERT INTO `paintings` VALUES ('644', '151', null, '24644.JPG', 'xqcy', null, null, null, 'Public domain', '介绍介绍', null, '1475', '123', '123', 'Oil on canvas', '200.0000', '900.0000', '2022-05-28 13:10:48', '2022-05-28 13:10:48', 'icalter', '1', '1');
+INSERT INTO `paintings` VALUES ('643', '151', null, '24643.JPG', 'aaaaa', null, null, null, 'Public domain', '123456543223455432345676543', null, '123', '123', '123', 'Oil on canvas', '23.0000', '900.0000', '2022-05-28 11:47:28', '2022-05-28 11:47:28', 'icalter', '2', '0');
+INSERT INTO `paintings` VALUES ('644', '151', null, '24644.JPG', 'xqcy', null, null, null, 'Public domain', '介绍介绍', null, '1475', '123', '123', 'Oil on canvas', '200.0000', '900.0000', '2022-05-28 13:10:48', '2022-05-28 13:10:48', 'icalter', '2', '1');
+INSERT INTO `paintings` VALUES ('645', '157', null, '24645.JPG', '作品名称', null, null, null, 'Public domain', 'gorougorou ？！gourou=', null, '1657', '32', '26', 'Oil on canvas', '12.0000', '900.0000', '2022-05-28 15:17:48', '2022-05-28 15:17:48', '写文档', '2', '1');
 
 -- ----------------------------
 -- Table structure for paintingsubjects
@@ -1060,12 +1077,12 @@ CREATE TABLE `shoppingcart` (
   `username` varchar(255) DEFAULT NULL,
   `EnteringTime` datetime DEFAULT NULL,
   PRIMARY KEY (`ShoppingCartID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shoppingcart
 -- ----------------------------
-INSERT INTO `shoppingcart` VALUES ('17', '7', 'mizuki', '2022-05-28 14:47:00');
+INSERT INTO `shoppingcart` VALUES ('22', '47', 'icalter', '2022-05-28 14:57:14');
 
 -- ----------------------------
 -- Table structure for subjects
@@ -1116,13 +1133,13 @@ CREATE TABLE `user` (
   `address` varchar(255) DEFAULT NULL,
   `money` decimal(19,4) DEFAULT '0.0000',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'icalter', 'icalter', '114514', '13706303326', '1600224799@qq.com', '1234', '9580.0000');
-INSERT INTO `user` VALUES ('2', 'mizuki', '水月', '1919810', '15269265778', '2818259462@qq.com', '伊比利亚', '125.0000');
+INSERT INTO `user` VALUES ('1', 'icalter', 'icalter', '114514', '13706303326', '1600224799@qq.com', '1234', '9405.0000');
+INSERT INTO `user` VALUES ('2', 'mizuki', '水月', '1919810', '15269265778', '2818259462@qq.com', '伊比利亚', '999374.0000');
 INSERT INTO `user` VALUES ('4', '12345', '12345', '123456', '13726545686', '567@qq.com', 'zzz', '0.0000');
 INSERT INTO `user` VALUES ('5', '张三', '张三丰', '123456', '13726545686', '56@qq.com', '分委屈啊啊认为', '0.0000');
 INSERT INTO `user` VALUES ('43', '小明明', 'true那么', 'codecode', '13706303326', '123@163.com', 'didididi', '0.0000');
@@ -1137,3 +1154,4 @@ INSERT INTO `user` VALUES ('64', '吴亦凡', '吸毒', '123456', '13245678989',
 INSERT INTO `user` VALUES ('65', 'Skybase', 'Zhou_ZiBo', '123456', '18019003773', '2445513122@qq.com', '11', '999999999998980.0000');
 INSERT INTO `user` VALUES ('66', 'fieo', '123', '12345a', '13423452345', '1600224798@qq.com', 'address', '0.0000');
 INSERT INTO `user` VALUES ('67', '13ergtr', '1234', '123qwe', '13412321232', '123@fudan.edu.cn', 'address', '0.0000');
+INSERT INTO `user` VALUES ('68', '写文档', '文档被写', '123456', '14725852585', '159@qq.com', 'address', '123456.0000');
