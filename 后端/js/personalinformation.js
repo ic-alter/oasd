@@ -137,7 +137,7 @@ function fetchMyUpload(){
                     <td>`+ data[i].upload_time +`</td>
                     <td class="update_delete">
                         <a onclick="want_to_update(`+data[i].id +`)" href="`+ "./uploadPainting.html" +`">修改</a>
-                        <a onclick="want_to_delete(`+data[i].id +`)" href="">删除</a>
+                        <a onclick="want_to_delete(`+data[i].id +`)" href="#">删除</a>
                     </td>
                 </tr>`;
                 }

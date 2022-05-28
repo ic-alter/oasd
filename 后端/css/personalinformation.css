@@ -62,3 +62,13 @@
 #ke_jin:hover{
    background-color: gold;
 }
+
+.update_delete a{
+    text-decoration: none;
+    color: blue
+}
+
+.update_delete a:hover{
+    text-decoration: none;
+    color: red
+}
