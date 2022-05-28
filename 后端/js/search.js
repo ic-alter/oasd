@@ -117,6 +117,7 @@ function change_page(va){
         page = va;
         ajaxFetchData();
         document.getElementById("now_page").innerHTML = page;
+        document.getElementById("page_error").innerHTML = "";
     }else{
         let page_error = document.getElementById("page_error");
         page_error.style.color = "red";
