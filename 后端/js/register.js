@@ -215,8 +215,9 @@ $(document).ready(function(){
 			 success: function(data,status){//如果调用php成功 
 				//alert(status);
 				alert(data);
-				jump_to_login();
-				//$('.con').html("用户名:"+data[0]+"密码:"+data[1]);
+				if(data=="注册成功"){
+					jump_to_login();
+				}
 			 }
 		});
 		} else alert("输入格式错误！");

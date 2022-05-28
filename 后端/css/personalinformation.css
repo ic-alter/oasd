@@ -3,12 +3,12 @@
 	margin: 0px;
 }
 .personal{
-    background-image: url("../imgs/personalBackground.png");
+    background-image: url("../imgs/shoppingCartBackground.png");
     background-size:cover;
     background-attachment: fixed;
 }
 .personal_inf{
-    background: rgba(237, 224, 255, 0.6);
+    background: rgba(229, 229, 230, 0.6);
     margin-top: 8%;
     margin-bottom: 8%;
     margin-left: 15%;
@@ -24,7 +24,7 @@
     width: 90%;
 }
 .personal_works{
-    background: rgba(237, 224, 255, 0.6);
+    background: rgba(229, 229, 230, 0.6);
     margin-top: 8%;
     margin-bottom: 8%;
     margin-left: 15%;
