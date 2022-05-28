@@ -45,31 +45,47 @@ function make_order(){
     } else if(!can_buy){
         alert("有的艺术品已经被人抢先买下了呢……虽然很可惜, 但还是删掉吧T^T");
     } else{
-        var flag = confirm("确认下单吗？(づ｡◕ᴗᴗ◕｡)づ");
-        if(flag){
-            $.ajax({
-                url: "../PHP/make_order.php",  
-                type: "POST",
-                data:{
-                    "total_cost":total_cost,
-                    "username":getCookie("username"),
-                    "time":jsDateFormatter(new Date())
-                   },
-                //dataType: "json",
-                //async: false,
-                error: function(){  
-                    alert('emmm  好像断网了呢(´д｀)……');  
-                    //alert(data);
-                },  
-                success: function(data,status){//如果调用php成功 
-                   //alert(status);
-                   alert(data);
-                   fetchShoppingCart();
-                   //getInformation(data);
-                }
-            })
-        } else{
-        }
+        $.ajax({
+            url: "../PHP/get_user.php",  
+            type: "POST",
+            data:{
+                "username":getCookie("username")
+               },
+            dataType: "json",
+            //async: false,
+            error: function(){  
+                alert('emmm  好像断网了呢(´д｀)……'); 
+            },  
+            success: function(data,status){//如果调用php成功 
+                var inf = "总价: "+ total_cost +"万美元\n账户余额: "+data.money+"万美元\n地址: "+data.address+"\n电话: "+data.phone+"\n";
+                var flag = confirm(inf+"确认要下单吗？(づ｡◕ᴗᴗ◕｡)づ");
+            if(flag){
+                $.ajax({
+                    url: "../PHP/make_order.php",  
+                    type: "POST",
+                    data:{
+                        "total_cost":total_cost,
+                        "username":getCookie("username"),
+                        "time":jsDateFormatter(new Date())
+                       },
+                    dataType: "json",
+                    //async: false,
+                    error: function(){  
+                        alert('emmm  好像断网了呢(´д｀)……');  
+                        //alert(data);
+                    },  
+                    success: function(data,status){//如果调用php成功 
+                       //alert(status);
+                       alert(data);
+                       fetchShoppingCart();
+                       //getInformation(data);
+                    }
+                })
+            } else{
+            }
+               
+            }  
+        })
     }
 }
 
